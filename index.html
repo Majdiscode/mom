@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shibli Homestaging Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #3d3024;
+            background: linear-gradient(135deg, #f8f6f0 0%, #f0ebe1 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+            border-bottom: 1px solid rgba(218, 165, 32, 0.08);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #8b4513;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            transition: transform 0.3s ease;
+            padding: 0.8rem 1.5rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(218, 165, 32, 0.1);
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 20px rgba(139, 69, 19, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 0.5rem;
+            border-radius: 25px;
+            border: 1px solid rgba(218, 165, 32, 0.1);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5d4e37;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding: 0.8rem 1.5rem;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #8b4513;
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f8f5f0 0%, #f2ede3 50%, #ede5d8 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -10%;
+            width: 40%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(184, 134, 11, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(248, 245, 240, 0.3) 100%);
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #2c2016;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            opacity: 0;
+            animation: slideInUp 1s ease 0.3s forwards;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: #4a3d2a;
+            font-weight: 400;
+            opacity: 0;
+            animation: slideInUp 1s ease 0.6s forwards;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
+            opacity: 0;
+            animation: slideInUp 1s ease 0.9s forwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(139, 69, 19, 0.4);
+            background: linear-gradient(135deg, #a0522d 0%, #8b4513 100%);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 4rem;
+            color: #3d3024;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #daa520, #b8860b);
+            border-radius: 2px;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateY(0);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #f5deb3 0%, #daa520 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8b4513;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .portfolio-item:hover .portfolio-image::before {
+            transform: translateX(100%);
+        }
+
+        .portfolio-content {
+            padding: 2rem;
+        }
+
+        .portfolio-content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #3d3024;
+        }
+
+        .portfolio-content p {
+            color: #5d4e37;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-details {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #8b4513;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .show-more-btn {
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        .show-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+            background: linear-gradient(135deg, #a0522d 0%, #8b4513 100%);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 2% auto;
+            padding: 2rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #8b4513;
+        }
+
+        .modal h3 {
+            margin-bottom: 1.5rem;
+            color: #3d3024;
+            font-size: 1.8rem;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .image-slot {
+            aspect-ratio: 1;
+            background: #f0f0f0;
+            border: 2px dashed #ddd;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-slot:hover {
+            border-color: #daa520;
+            background: #f8f6f0;
+        }
+
+        .image-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .image-slot.filled {
+            border: 2px solid #daa520;
+            background: white;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #3d3024;
+        }
+
+        .contact-info p {
+            margin-bottom: 2rem;
+            color: #5d4e37;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            padding: 1.2rem 0;
+            font-size: 1rem;
+            color: #5d4e37;
+            border-bottom: 1px solid rgba(218, 165, 32, 0.1);
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .contact-details li:hover {
+            color: #8b4513;
+        }
+
+        .contact-details li:last-child {
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            fill: #8b4513;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 28px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #daa520, #b8860b);
+            border-radius: 28px 28px 0 0;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: #3d3024;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.2rem;
+            border: 2px solid rgba(218, 165, 32, 0.1);
+            border-radius: 16px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(248, 246, 240, 0.5);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #daa520;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.3);
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
+            background: linear-gradient(135deg, #a0522d 0%, #8b4513 100%);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #3d3024 0%, #2c1810 100%);
+            color: #daa520;
+            text-align: center;
+            padding: 2.5rem 0;
+            border-radius: 40px 40px 0 0;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+                padding: 1.5rem;
+            }
+
+            .image-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInOnScroll 0.8s ease forwards;
+        }
+
+        @keyframes fadeInOnScroll {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">Shibli Homestaging Services</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transform Your Property Into a Dream Home</h1>
+                <p>Professional home staging services that help properties sell faster and for better prices. We create inviting spaces that buyers can envision as their future home.</p>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Recent Projects</h2>
+            <div class="portfolio-grid">
+                <!-- PROJECT 1: DALY CITY CONDO -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <!-- 📸 MAIN IMAGE FOR PROJECT 1: Daly City Condo -->
+                        <img src="https://raw.githubusercontent.com/Majdiscode/mom/main/DLiving%233.jpg" alt="Daly City Condo Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div style="display: none;">[Daly City Condo - Living Room]</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Condo 2 Bed 1 Bath</h3>
+                        <p>Complete condo transformation featuring modern furnishings and strategic staging to maximize the compact space and highlight its potential.</p>
+                        <div class="project-details">
+                            <span>331 Philip Dr #106, Daly City, CA 94015</span>
+                            <span>2 Bed • 1 Bath</span>
+                        </div>
+                        <button class="show-more-btn" onclick="openModal('Daly City Condo')">Show More</button>
+                    </div>
+                </div>
+
+                <!-- PROJECT 2: DANVILLE HOUSE -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <!-- 📸 MAIN IMAGE FOR PROJECT 2: Danville House -->
+                        <img src="https://raw.githubusercontent.com/Majdiscode/mom/main/Living%235.jpg" alt="Danville House Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div style="display: none;">[Danville House - Living Room]</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>House 3 Bed 3 Bath</h3>
+                        <p>Elegant home staging showcasing contemporary design elements and neutral color palette to appeal to a wide range of potential buyers.</p>
+                        <div class="project-details">
+                            <span>36 Barcelona Ct, Danville, CA 94526</span>
+                            <span>3 Bed • 3 Bath</span>
+                        </div>
+                        <button class="show-more-btn" onclick="openModal('Danville House')">Show More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle">Project Images</h3>
+            <div class="image-grid" id="imageGrid">
+                <!-- 9 project images will be populated here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Ready to Transform Your Property?</h3>
+                    <p>Contact us today for a consultation and see how professional staging can make the difference in selling your home quickly and at the best price.</p>
+                    <ul class="contact-details">
+                        <li>
+                            <svg class="contact-icon" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            shibli.homestaging@gmail.com
+                        </li>
+                        <li>
+                            <svg class="contact-icon" viewBox="0 0 24 24">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                            (650) 436-7268
+                        </li>
+                        <li>
+                            <svg class="contact-icon" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            Burlingame, CA
+                        </li>
+                        <li>
+                            <svg class="contact-icon" viewBox="0 0 24 24">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                                <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                            </svg>
+                            M-F: 8am-5pm
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="contact-form">
+                    <form action="https://formspree.io/f/mpwlprla" method="POST" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <!-- Hidden fields for better email organization -->
+                        <input type="hidden" name="_subject" value="New Contact from Shibli Home Staging Website">
+                        
+                        <button type="submit" class="submit-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Shibli Homestaging Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 🖼️ ===== IMAGE CONFIGURATION SECTION =====
+        // 📸 TO ADD IMAGES: Upload your images to a free image hosting service like:
+        // - Imgur.com (recommended)
+        // - Postimages.org  
+        // - ImageBB.com
+        // Then replace the URLs below with your image URLs
+
+        const projectImages = {
+            // 🏠 DALY CITY CONDO - 9 IMAGES FOR MODAL GALLERY (FIRST 9 FILES)
+            'Daly City Condo': [
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DBathroom1.jpg',      // 1. DBathroom1 (fixed!)
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DBathroom%232.jpg',  // 2. DBathroom#2
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DBedroom%231.jpg',   // 3. DBedroom#1
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DBedroom%232.jpg',   // 4. DBedroom#2
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DDining%231.jpg',    // 5. DDining#1
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DDining%232.jpg',    // 6. DDining#2
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DKitchen%231.jpg',   // 7. DKitchen#1
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DLiving%231.jpg',    // 8. DLiving#1
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DLiving%232.jpg'     // 9. DLiving#2
+            ],
+
+            // 🏡 DANVILLE HOUSE - 9 IMAGES FOR MODAL GALLERY  
+            'Danville House': [
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Bedroom%231.jpg',  // Bedroom 1
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Bedroom%233.jpg',  // Bedroom 3
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Bathroom%231.jpg', // Bathroom 1
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Bathroom%232.jpg', // Bathroom 2
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Dining%231.jpg',   // Dining 1
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Dining%232.jpg',   // Dining 2
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Living%231.jpg',   // Living 1
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Living%232.jpg',   // Living 2
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Kitchen%231.jpg'   // Kitchen 1
+            ]
+        };
+
+        // 🔧 ===== MODAL FUNCTIONALITY =====
+        function openModal(projectTitle) {
+            document.getElementById('imageModal').style.display = 'block';
+            document.getElementById('modalTitle').textContent = projectTitle + ' - Project Gallery';
+            populateImageGrid(projectTitle);
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // 🖼️ Populate image grid with project images
+        function populateImageGrid(projectTitle) {
+            const imageGrid = document.getElementById('imageGrid');
+            const images = projectImages[projectTitle] || [];
+            
+            // Clear existing content
+            imageGrid.innerHTML = '';
+            
+            // Create exactly 9 slots for the 3x3 grid
+            for (let i = 0; i < 9; i++) {
+                const slot = document.createElement('div');
+                slot.className = 'image-slot';
+                
+                if (i < images.length && images[i] && !images[i].includes('YOUR_IMAGE_URL')) {
+                    // Display actual image if URL is provided and not placeholder
+                    const img = document.createElement('img');
+                    img.src = images[i];
+                    img.alt = `${projectTitle} - Image ${i + 1}`;
+                    img.onerror = function() {
+                        // If image fails to load, show placeholder
+                        slot.innerHTML = `<span>Image ${i + 1}<br><small>Upload needed</small></span>`;
+                        slot.classList.remove('filled');
+                    };
+                    img.onload = function() {
+                        slot.classList.add('filled');
+                    };
+                    slot.appendChild(img);
+                    slot.classList.add('filled');
+                } else {
+                    // Display placeholder for empty slots or placeholder URLs
+                    slot.innerHTML = `<span>Image ${i + 1}<br><small>Upload needed</small></span>`;
+                }
+                
+                imageGrid.appendChild(slot);
+            }
+        }
+
+        // 📧 Contact Form Handling with Formspree
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            const submitButton = document.querySelector('.submit-button');
+            
+            // Show loading state
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+            submitButton.style.opacity = '0.7';
+            
+            // The form will submit to Formspree automatically
+            // After 2 seconds, show success message (Formspree handles the actual sending)
+            setTimeout(function() {
+                // Don't prevent default - let Formspree handle it
+                // This is just for user feedback
+            }, 100);
+        });
+
+        // Show success message if redirected back from Formspree
+        window.addEventListener('load', function() {
+            // Check if we're on a success page or have success parameter
+            if (window.location.search.includes('success') || window.location.hash.includes('success')) {
+                alert('✅ Thank you! Your message has been sent successfully. We\'ll get back to you soon!');
+            }
+        });
+
+        // 🎯 Add smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 🎨 Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.portfolio-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+    <!-- 
+    📝 ===== INSTRUCTIONS FOR ADDING IMAGES =====
+    
+    🎯 STEP 1: UPLOAD YOUR IMAGES
+    Go to one of these free image hosting sites:
+    • Imgur.com (recommended)
+    • Postimages.org
+    • ImageBB.com
+    
+    🎯 STEP 2: GET IMAGE URLS
+    After uploading, copy the "Direct Link" or "Image URL"
+    
+    🎯 STEP 3: REPLACE PLACEHOLDER URLS
+    In the JavaScript section above, replace:
+    • Line ~570: Replace 'https://i.imgur.com/YOUR_IMAGE_1.jpg' with your Daly City main image URL
+    • Line ~580: Replace 'https://i.imgur.com/YOUR_IMAGE_2.jpg' with your Danville main image URL
+    • Lines ~590-607: Replace all 'YOUR_IMAGE_URL_X.jpg' with your gallery image URLs
+    
+    🎯 EXAMPLE:
+    Instead of: 'https://i.imgur.com/YOUR_IMAGE_URL_1.jpg'
+    Use: 'https://i.imgur.com/abc123.jpg'
+    
+    🎯 RECOMMENDED IMAGE SIZES:
+    • Main project images: 800x600 pixels minimum
+    • Gallery images: 600x600 pixels minimum
+    • File format: JPG or PNG
+    
+    ✅ Once you replace the URLs, your images will be visible to anyone who visits your website!
+    -->
+</body>
+</html>
