@@ -708,6 +708,17 @@
                         <button class="show-more-btn" onclick="openModal('Burlingame Apartment')">Show More</button>
                     </div>
                 </div>
+
+                <!-- PROJECT 4: SAN FRANCISCO APARTMENT (FOURTH) -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/d5e9ca039f9ba8d54ab534cf64abe43f-cc_ft_1536.webp" alt="SF Apartment Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div style="display: none;">[400 Beale Street - Living Room]</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <button class="show-more-btn" onclick="openModal('400 Beale Street SF')">Show More</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -851,6 +862,36 @@
                 '', // 13. Available for more images
                 '', // 14. Available for more images
                 ''  // 15. Available for more images
+            ],
+
+            // 🏙️ 400 BEALE STREET SF APARTMENT - 26 IMAGES
+            '400 Beale Street SF': [
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/04efe423a45f44dd9e19490fa6655887-cc_ft_1536.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/07ccb23fa533cd91c17400bfc86b636e-cc_ft_1536.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/26d981c6606a448bac44823649acb4a8-cc_ft_1536.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/2a393731a2ae127d3d5da54fed35d963-cc_ft_1536.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/5393fc6d8f2524c76c24bfe4c984dacf-cc_ft_1536.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/b7bfe207da3c8e2d3ca87e1076985313-cc_ft_1536.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/ccd19a2d640417f392c64d79c421ac30-cc_ft_1536.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/d5e9ca039f9ba8d54ab534cf64abe43f-cc_ft_1536.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/08e8d16623bd5cac060065c078e9cf6a-cc_ft_768.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/0bb6523a19d56626eb79e0cab004e52d-cc_ft_768.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/3b8796ba22059cd863990a7fdb1e79b7-cc_ft_768.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/432edf0200d529cded8e01073557a772-cc_ft_768.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/444f961efa46642cbc9ea7a23f7ca7bb-cc_ft_768.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/4a4911c33a626c3ef2234a125ee8c04e-cc_ft_768.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/60a83a881b3480aad9d328fdc43ce355-cc_ft_768.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/669ba19f0697c021892628708e78888b-cc_ft_768.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/711fcd06972df1ba45e846362e09bc32-cc_ft_768.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/7b2a915eb927114fd6a28b6b8c0f620f-cc_ft_768.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/7e45faab5501fe110a96e4e27b650b05-cc_ft_768.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/974287609386115e850a8ad897c160b8-cc_ft_768.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/a8d640dc90212a40c5b1d965d53ac9fc-cc_ft_768.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/abd2a1847367aa3c7283bc30b1e50aee-cc_ft_768.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/ba8accfb72cd7dc91acb53fd7c362b7a-cc_ft_768.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/d3961182b94d35c6c83044e235e2e429-cc_ft_768.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/d434a9f44edbf220b950289ed547d905-cc_ft_768.webp',
+                'https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/e0965614e4d41ded086f7f7eebaf8f23-cc_ft_768.webp'
             ]
         };
 
@@ -892,6 +933,9 @@
             } else if (projectTitle === 'Burlingame Apartment') {
                 imageGrid.className = 'image-grid luxury-grid';
                 var maxImages = 8; // 4x2 grid
+            } else if (projectTitle === '400 Beale Street SF') {
+                imageGrid.className = 'image-grid default-grid';
+                var maxImages = 20; // 5x4 grid for many images
             } else {
                 imageGrid.className = 'image-grid default-grid';
                 var maxImages = 15; // 5x3 grid
