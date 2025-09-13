@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shibli Homestaging Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #3d3024;
+            background: linear-gradient(135deg, #f8f6f0 0%, #f0ebe1 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+            border-bottom: 1px solid rgba(218, 165, 32, 0.08);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #8b4513;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            transition: transform 0.3s ease;
+            padding: 0.8rem 1.5rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(218, 165, 32, 0.1);
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 20px rgba(139, 69, 19, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 0.5rem;
+            border-radius: 25px;
+            border: 1px solid rgba(218, 165, 32, 0.1);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5d4e37;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding: 0.8rem 1.5rem;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #8b4513;
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f8f5f0 0%, #f2ede3 50%, #ede5d8 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -10%;
+            width: 40%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(184, 134, 11, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(248, 245, 240, 0.3) 100%);
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #2c2016;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            opacity: 0;
+            animation: slideInUp 1s ease 0.3s forwards;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: #4a3d2a;
+            font-weight: 400;
+            opacity: 0;
+            animation: slideInUp 1s ease 0.6s forwards;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
+            opacity: 0;
+            animation: slideInUp 1s ease 0.9s forwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(139, 69, 19, 0.4);
+            background: linear-gradient(135deg, #a0522d 0%, #8b4513 100%);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 4rem;
+            color: #3d3024;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #daa520, #b8860b);
+            border-radius: 2px;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateY(0);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #f5deb3 0%, #daa520 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8b4513;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-image img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-content {
+            padding: 2rem;
+        }
+
+        .portfolio-content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #3d3024;
+        }
+
+        .portfolio-content p {
+            color: #5d4e37;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .show-more-btn {
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            width: 100%;
+        }
+
+        .show-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+            background: linear-gradient(135deg, #a0522d 0%, #8b4513 100%);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 2% auto;
+            padding: 2rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #8b4513;
+        }
+
+        .modal h3 {
+            margin-bottom: 1.5rem;
+            color: #3d3024;
+            font-size: 1.8rem;
+        }
+
+        .image-grid {
+            display: grid;
+            gap: 1.2rem;
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .image-grid.daly-city-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .image-grid.luxury-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .image-grid.default-grid {
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        .image-slot {
+            aspect-ratio: 1;
+            background: #f0f0f0;
+            border: 2px dashed #ddd;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            min-height: 120px;
+            width: 100%;
+        }
+
+        .image-slot:hover {
+            border-color: #daa520;
+            background: #f8f6f0;
+            transform: scale(1.05);
+        }
+
+        .image-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .image-slot.filled {
+            border: 2px solid #daa520;
+            background: white;
+        }
+
+        .image-slot.filled:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-slot.hidden {
+            visibility: hidden;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #3d3024;
+        }
+
+        .contact-info p {
+            margin-bottom: 2rem;
+            color: #5d4e37;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            padding: 1.2rem 0;
+            font-size: 1rem;
+            color: #5d4e37;
+            border-bottom: 1px solid rgba(218, 165, 32, 0.1);
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .contact-details li:hover {
+            color: #8b4513;
+        }
+
+        .contact-details li:last-child {
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            fill: #8b4513;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 28px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #daa520, #b8860b);
+            border-radius: 28px 28px 0 0;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: #3d3024;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.2rem;
+            border: 2px solid rgba(218, 165, 32, 0.1);
+            border-radius: 16px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(248, 246, 240, 0.5);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #daa520;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.3);
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
+            background: linear-gradient(135deg, #a0522d 0%, #8b4513 100%);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #3d3024 0%, #2c1810 100%);
+            color: #daa520;
+            text-align: center;
+            padding: 2.5rem 0;
+            border-radius: 40px 40px 0 0;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+                padding: 1.5rem;
+            }
+
+            .image-grid.luxury-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+
+            .image-grid.default-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+
+            .image-grid.daly-city-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+            
+            .image-slot {
+                min-height: 100px;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInOnScroll 0.8s ease forwards;
+        }
+
+        @keyframes fadeInOnScroll {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">Shibli Homestaging Services</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transform Your Property Into a Dream Home</h1>
+                <p>Professional home staging services that help properties sell faster and for better prices. We create inviting spaces that buyers can envision as their future home.</p>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Recent Projects</h2>
+            <div class="portfolio-grid">
+                <!-- PROJECT 1: DALY CITY CONDO -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://raw.githubusercontent.com/Majdiscode/mom/main/DLiving%233.jpg" alt="Daly City Condo Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div style="display: none;">[Daly City Condo - Living Room]</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <button class="show-more-btn" onclick="openModal('Daly City Condo')">Show More</button>
+                    </div>
+                </div>
+
+                <!-- PROJECT 2: DANVILLE HOUSE -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://raw.githubusercontent.com/Majdiscode/mom/main/Living%235.jpg" alt="Danville House Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div style="display: none;">[Danville House - Living Room]</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <button class="show-more-btn" onclick="openModal('Danville House')">Show More</button>
+                    </div>
+                </div>
+
+                <!-- PROJECT 3: NEW PROJECT -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_1112.jpeg" alt="New Project Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div style="display: none;">[New Project - Interior]</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <button class="show-more-btn" onclick="openModal('Burlingame Apartment')">Show More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle">Project Images</h3>
+            <div class="image-grid" id="imageGrid">
+                <!-- Project images will be populated here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Ready to Transform Your Property?</h3>
+                    <p>Contact us today for a consultation and see how professional staging can make the difference in selling your home quickly and at the best price.</p>
+                    <ul class="contact-details">
+                        <li>
+                            <svg class="contact-icon" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            shibli.homestaging@gmail.com
+                        </li>
+                        <li>
+                            <svg class="contact-icon" viewBox="0 0 24 24">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                            (650) 436-7268
+                        </li>
+                        <li>
+                            <svg class="contact-icon" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            Burlingame, CA
+                        </li>
+                        <li>
+                            <svg class="contact-icon" viewBox="0 0 24 24">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                                <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                            </svg>
+                            M-F: 8am-5pm
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="contact-form">
+                    <form action="https://formspree.io/f/mpwlprla" method="POST" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <!-- Hidden fields for better email organization -->
+                        <input type="hidden" name="_subject" value="New Contact from Shibli Home Staging Website">
+                        
+                        <button type="submit" class="submit-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Shibli Homestaging Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 🖼️ ===== IMAGE CONFIGURATION SECTION =====
+        const projectImages = {
+            // 🏠 DALY CITY CONDO - 12 IMAGES FOR 4x3 GRID
+            'Daly City Condo': [
+                     // 1. DBathroom1
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DBathroom%232.jpg',  // 2. DBathroom#2
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DBedroom%231.jpg',   // 3. DBedroom#1
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DBedroom%232.jpg',   // 4. DBedroom#2
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DDining%231.jpg',    // 5. DDining#1
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DDining%232.jpg',    // 6. DDining#2
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DKitchen%231.jpg',   // 7. DKitchen#1
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DLiving%231.jpg',    // 8. DLiving#1
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DLiving%232.jpg',    // 9. DLiving#2
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DLiving%233.jpg',
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DSC_1594.jpg',
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DSC_1593.jpg',
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/DSC_1600.jpg'    // 10. DLiving#3
+                 // 12. Available for more images
+            ],
+
+            // 🏡 DANVILLE HOUSE - EXPANDED GALLERY
+            'Danville House': [
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Bedroom%231.jpg',     // 1. Bedroom 1
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Bedroom%233.jpg',     // 2. Bedroom 3
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Bathroom%231.jpg',    // 3. Bathroom 1
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Bathroom%232.jpg',    // 4. Bathroom 2
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Dining%232.jpg',      // 5. Dining 2
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Kitchen%231.jpg',     // 6. Kitchen 1
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0186.jpg',        // 7. IMG_0186
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0188.jpg',        // 8. IMG_0188
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/FullSizeRender.jpeg', // 9. FullSizeRender
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0235.jpeg',       // 10. IMG_0235
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0236.jpeg',       // 11. IMG_0236
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0228.jpeg',       // 12. IMG_0228
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0189.jpeg',       // 13. IMG_0189
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0204.jpeg',       // 14. IMG_0204
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0217.jpeg',       // 15. IMG_0217
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0219.jpeg',       // 16. IMG_0219
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0232.jpeg'        // 17. IMG_0232
+            ],
+
+            // 🏠 LUXURY HOME STAGING - NEW PROJECT
+            'Burlingame Apartment': [
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_1108.jpeg',       // 1. IMG_1108
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_1109.jpeg',       // 2. IMG_1109
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_1110.jpeg',       // 3. IMG_1110
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_1111.jpeg',       // 4. IMG_1111
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_1112.jpeg',       // 5. IMG_1112
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_1750.jpeg',       // 6. IMG_1750
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_1763.jpeg',       // 7. IMG_1763
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_1877.jpeg',       // 8. IMG_1877
+                '', // 9. Available for more images
+                '', // 10. Available for more images
+                '', // 11. Available for more images
+                '', // 12. Available for more images
+                '', // 13. Available for more images
+                '', // 14. Available for more images
+                ''  // 15. Available for more images
+            ]
+        };
+
+        // 🔧 ===== MODAL FUNCTIONALITY =====
+        function openModal(projectTitle) {
+            document.getElementById('imageModal').style.display = 'block';
+            document.getElementById('modalTitle').textContent = projectTitle + ' - Project Gallery';
+            populateImageGrid(projectTitle);
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // 🖼️ Populate image grid with project images
+        function populateImageGrid(projectTitle) {
+            const imageGrid = document.getElementById('imageGrid');
+            const images = projectImages[projectTitle] || [];
+            const validImages = images.filter(img => img && img !== '' && !img.includes('YOUR_IMAGE_URL'));
+            
+            // Clear existing content
+            imageGrid.innerHTML = '';
+            
+            // Set grid class based on project
+            if (projectTitle === 'Daly City Condo') {
+                imageGrid.className = 'image-grid daly-city-grid';
+                var maxImages = 12; // 4x3 grid
+            } else if (projectTitle === 'Burlingame Apartment') {
+                imageGrid.className = 'image-grid luxury-grid';
+                var maxImages = 8; // 4x2 grid
+            } else {
+                imageGrid.className = 'image-grid default-grid';
+                var maxImages = 15; // 5x3 grid
+            }
+            
+            // Show images up to the max
+            const displayImages = validImages.slice(0, maxImages);
+            
+            // Create image slots directly in the grid
+            for (let i = 0; i < maxImages; i++) {
+                const slot = document.createElement('div');
+                slot.className = 'image-slot';
+                
+                if (i < displayImages.length) {
+                    // Display actual image
+                    const img = document.createElement('img');
+                    img.src = displayImages[i];
+                    img.alt = `${projectTitle} - Image ${i + 1}`;
+                    img.loading = 'lazy';
+                    
+                    img.onerror = function() {
+                        slot.innerHTML = `<span>Loading...<br><small>Image ${i + 1}</small></span>`;
+                        slot.classList.remove('filled');
+                    };
+                    img.onload = function() {
+                        slot.classList.add('filled');
+                    };
+                    
+                    // Add click to open slideshow from this image
+                    img.style.cursor = 'pointer';
+                    img.onclick = function() {
+                        openImageLightbox(validImages, i, projectTitle);
+                    };
+                    
+                    slot.appendChild(img);
+                    slot.classList.add('filled');
+                } else {
+                    // Hide empty slots
+                    slot.classList.add('hidden');
+                }
+                
+                imageGrid.appendChild(slot);
+            }
+            
+            // Add "View All Images" button if there are more images than the grid shows
+            if (validImages.length > maxImages) {
+                const buttonContainer = document.createElement('div');
+                buttonContainer.style.cssText = `
+                    grid-column: 1 / -1; 
+                    display: flex; 
+                    justify-content: center; 
+                    margin-top: 2rem;
+                `;
+                
+                const viewAllBtn = document.createElement('button');
+                viewAllBtn.textContent = `View All ${validImages.length} Images`;
+                viewAllBtn.style.cssText = `
+                    padding: 1rem 2rem;
+                    background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+                    color: white; border: none; border-radius: 25px;
+                    font-weight: 600; font-size: 1rem; text-transform: uppercase;
+                    letter-spacing: 0.5px; cursor: pointer; transition: all 0.3s ease;
+                    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+                `;
+                
+                viewAllBtn.onmouseenter = () => {
+                    viewAllBtn.style.transform = 'translateY(-2px)';
+                    viewAllBtn.style.boxShadow = '0 6px 20px rgba(139, 69, 19, 0.4)';
+                };
+                viewAllBtn.onmouseleave = () => {
+                    viewAllBtn.style.transform = 'translateY(0)';
+                    viewAllBtn.style.boxShadow = '0 4px 15px rgba(139, 69, 19, 0.3)';
+                };
+                
+                viewAllBtn.onclick = () => {
+                    openImageLightbox(validImages, 0, projectTitle);
+                };
+                
+                buttonContainer.appendChild(viewAllBtn);
+                imageGrid.appendChild(buttonContainer);
+            }
+        }
+
+        // 🔍 Image Lightbox with Navigation
+        function openImageLightbox(images, startIndex, projectTitle) {
+            // Filter out empty images
+            const validImages = images.filter(img => img && img !== '' && !img.includes('YOUR_IMAGE_URL'));
+            if (validImages.length === 0) return;
+
+            // Ensure startIndex is within bounds
+            let currentIndex = Math.max(0, Math.min(startIndex, validImages.length - 1));
+
+            // Reuse overlay if it already exists
+            let overlay = document.getElementById('imageLightbox');
+            let mainImage, leftArrow, rightArrow, closeBtn, counter;
+
+            // Helper to safely remove a previous keydown listener if any
+            function detachPreviousKeydownIfAny(node) {
+                if (node && node._keydownHandler) {
+                    document.removeEventListener('keydown', node._keydownHandler);
+                    node._keydownHandler = null;
+                }
+            }
+
+            if (!overlay) {
+                // Create overlay
+                overlay = document.createElement('div');
+                overlay.id = 'imageLightbox';
+                overlay.style.cssText = `
+                    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                    background: rgba(0,0,0,0.95); z-index: 3000; display: flex;
+                    align-items: center; justify-content: center; opacity: 0;
+                    transition: opacity 0.3s ease;
+                `;
+
+                // Create image container
+                const imageContainer = document.createElement('div');
+                imageContainer.style.cssText = `
+                    position: relative; max-width: 90%; max-height: 90%;
+                    display: flex; align-items: center; justify-content: center;
+                `;
+
+                // Main image
+                mainImage = document.createElement('img');
+                mainImage.id = 'lightboxMainImg';
+                mainImage.style.cssText = `
+                    max-width: 100%; max-height: 100%; object-fit: contain;
+                    transition: opacity 0.3s ease, transform 0.3s ease;
+                    border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+                `;
+
+                // Arrows
+                leftArrow = document.createElement('div');
+                leftArrow.id = 'lightboxPrev';
+                leftArrow.innerHTML = '&#8249;';
+                leftArrow.style.cssText = `
+                    position: absolute; left: -80px; top: 50%; transform: translateY(-50%);
+                    font-size: 4rem; color: white; cursor: pointer; user-select: none;
+                    background: rgba(0,0,0,0.5); width: 60px; height: 60px;
+                    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+                    transition: all 0.3s ease; backdrop-filter: blur(10px);
+                `;
+
+                rightArrow = document.createElement('div');
+                rightArrow.id = 'lightboxNext';
+                rightArrow.innerHTML = '&#8250;';
+                rightArrow.style.cssText = `
+                    position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
+                    font-size: 4rem; color: white; cursor: pointer; user-select: none;
+                    background: rgba(0,0,0,0.5); width: 60px; height: 60px;
+                    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+                    transition: all 0.3s ease; backdrop-filter: blur(10px);
+                `;
+
+                // Close
+                closeBtn = document.createElement('div');
+                closeBtn.id = 'lightboxClose';
+                closeBtn.innerHTML = '×';
+                closeBtn.style.cssText = `
+                    position: absolute; top: -50px; right: -20px;
+                    font-size: 3rem; color: white; cursor: pointer; user-select: none;
+                    background: rgba(0,0,0,0.5); width: 50px; height: 50px;
+                    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+                    transition: all 0.3s ease; backdrop-filter: blur(10px);
+                `;
+
+                // Counter
+                counter = document.createElement('div');
+                counter.id = 'lightboxCounter';
+                counter.style.cssText = `
+                    position: absolute; bottom: -50px; left: 50%; transform: translateX(-50%);
+                    color: white; font-size: 1rem; background: rgba(0,0,0,0.5);
+                    padding: 8px 16px; border-radius: 20px; backdrop-filter: blur(10px);
+                `;
+
+                imageContainer.appendChild(mainImage);
+                imageContainer.appendChild(leftArrow);
+                imageContainer.appendChild(rightArrow);
+                imageContainer.appendChild(closeBtn);
+                imageContainer.appendChild(counter);
+                overlay.appendChild(imageContainer);
+                document.body.appendChild(overlay);
+            } else {
+                // Grab existing nodes if overlay already exists
+                mainImage  = document.getElementById('lightboxMainImg');
+                leftArrow  = document.getElementById('lightboxPrev');
+                rightArrow = document.getElementById('lightboxNext');
+                closeBtn   = document.getElementById('lightboxClose');
+                counter    = document.getElementById('lightboxCounter');
+                // Detach any old keydown handler before adding a new one
+                detachPreviousKeydownIfAny(overlay);
+            }
+
+            // Update arrows enabled/disabled look at edges
+            function refreshArrowState() {
+                const atStart = currentIndex === 0;
+                const atEnd   = currentIndex === validImages.length - 1;
+                leftArrow.style.opacity  = atStart ? '0.35' : '0.7';
+                rightArrow.style.opacity = atEnd   ? '0.35' : '0.7';
+                leftArrow.style.pointerEvents  = atStart ? 'none' : 'auto';
+                rightArrow.style.pointerEvents = atEnd   ? 'none' : 'auto';
+            }
+
+            // Swap main image
+            function updateImage(index) {
+                if (index < 0 || index >= validImages.length) return;
+                mainImage.style.opacity = '0';
+                mainImage.style.transform = 'scale(0.97)';
+                setTimeout(() => {
+                    mainImage.src = validImages[index];
+                    mainImage.alt = `${projectTitle} - Image ${index + 1}`;
+                    counter.textContent = `${index + 1} / ${validImages.length}`;
+                    mainImage.style.opacity = '1';
+                    mainImage.style.transform = 'scale(1)';
+                    refreshArrowState();
+                }, 120);
+            }
+
+            // Navigation
+            function showPrevious() {
+                if (currentIndex > 0) {
+                    currentIndex -= 1;
+                    updateImage(currentIndex);
+                }
+            }
+            function showNext() {
+                if (currentIndex < validImages.length - 1) {
+                    currentIndex += 1;
+                    updateImage(currentIndex);
+                }
+            }
+
+            // Close and cleanup
+            function closeLightbox() {
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    // Fully remove overlay from DOM to guarantee a clean state next open
+                    if (overlay && overlay.parentNode) {
+                        detachPreviousKeydownIfAny(overlay);
+                        overlay.parentNode.removeChild(overlay);
+                    }
+                }, 300);
+            }
+
+            // Bind events (fresh each time)
+            leftArrow.onclick = showPrevious;
+            rightArrow.onclick = showNext;
+            closeBtn.onclick = closeLightbox;
+            overlay.onclick = (e) => { if (e.target === overlay) closeLightbox(); };
+
+            // Keyboard navigation — store handler on overlay so we can remove it later
+            overlay._keydownHandler = function(e) {
+                if (e.key === 'ArrowLeft')  { e.preventDefault(); showPrevious(); }
+                if (e.key === 'ArrowRight') { e.preventDefault(); showNext(); }
+                if (e.key === 'Escape')     { e.preventDefault(); closeLightbox(); }
+            };
+            document.addEventListener('keydown', overlay._keydownHandler);
+
+            // Initialize and show
+            updateImage(currentIndex);
+            requestAnimationFrame(() => { overlay.style.opacity = '1'; });
+        }
+
+        // 📧 Contact Form Handling with Formspree
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            const submitButton = document.querySelector('.submit-button');
+            const originalText = submitButton.textContent;
+            
+            // Show loading state
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+            submitButton.style.opacity = '0.7';
+            
+            // Reset button after form submission (whether success or error)
+            setTimeout(function() {
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+                submitButton.style.opacity = '1';
+            }, 3000);
+        });
+
+        // Reset form and button if user stays on page
+        window.addEventListener('pageshow', function(event) {
+            const submitButton = document.querySelector('.submit-button');
+            const form = document.getElementById('contactForm');
+            
+            // Reset button state
+            submitButton.textContent = 'Send Message';
+            submitButton.disabled = false;
+            submitButton.style.opacity = '1';
+            
+            // Show success message if coming back from Formspree
+            if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+                setTimeout(function() {
+                    alert('✅ Thank you! Your message has been sent successfully. We\'ll get back to you soon!');
+                    form.reset();
+                }, 500);
+            }
+        });
+
+        // Show success message if redirected back from Formspree
+        window.addEventListener('load', function() {
+            if (window.location.search.includes('success') || window.location.hash.includes('success')) {
+                alert('✅ Thank you! Your message has been sent successfully. We\'ll get back to you soon!');
+                if (window.history.replaceState) {
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }
+            }
+        });
+
+        // 🎯 Add smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 🎨 Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.portfolio-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
