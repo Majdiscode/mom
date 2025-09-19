@@ -1087,7 +1087,7 @@
                     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
                     background: rgba(0,0,0,0.95); z-index: 3000; display: flex;
                     align-items: center; justify-content: center; opacity: 0;
-                    transition: opacity 0.3s ease;
+                    transition: opacity 0.3s ease; overflow: hidden;
                 `;
 
                 // Create image container
@@ -1210,6 +1210,11 @@
 
             // Close and cleanup
             function closeLightbox() {
+                // Unlock body scroll when lightbox closes
+                document.body.style.overflow = '';
+                document.body.style.position = '';
+                document.body.style.width = '';
+                
                 overlay.style.opacity = '0';
                 setTimeout(() => {
                     // Fully remove overlay from DOM to guarantee a clean state next open
@@ -1225,6 +1230,10 @@
             rightArrow.onclick = showNext;
             closeBtn.onclick = closeLightbox;
             overlay.onclick = (e) => { if (e.target === overlay) closeLightbox(); };
+            
+            // Prevent scroll and touch events on overlay
+            overlay.addEventListener('wheel', (e) => e.preventDefault(), { passive: false });
+            overlay.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
 
             // Keyboard navigation — store handler on overlay so we can remove it later
             overlay._keydownHandler = function(e) {
@@ -1234,6 +1243,11 @@
             };
             document.addEventListener('keydown', overlay._keydownHandler);
 
+            // Lock body scroll when lightbox opens
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+            
             // Initialize and show
             updateImage(currentIndex);
             requestAnimationFrame(() => { overlay.style.opacity = '1'; });
