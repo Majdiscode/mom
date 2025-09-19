@@ -1110,23 +1110,24 @@
                 leftArrow = document.createElement('div');
                 leftArrow.id = 'lightboxPrev';
                 leftArrow.innerHTML = '&#8249;';
+                const isMobile = window.innerWidth <= 768;
                 leftArrow.style.cssText = `
-                    position: absolute; left: -80px; top: 50%; transform: translateY(-50%);
-                    font-size: 4rem; color: white; cursor: pointer; user-select: none;
-                    background: rgba(0,0,0,0.5); width: 60px; height: 60px;
+                    position: absolute; left: ${isMobile ? '20px' : '-80px'}; top: 50%; transform: translateY(-50%);
+                    font-size: ${isMobile ? '3rem' : '4rem'}; color: white; cursor: pointer; user-select: none;
+                    background: rgba(0,0,0,0.7); width: ${isMobile ? '50px' : '60px'}; height: ${isMobile ? '50px' : '60px'};
                     border-radius: 50%; display: flex; align-items: center; justify-content: center;
-                    transition: all 0.3s ease; backdrop-filter: blur(10px);
+                    transition: all 0.3s ease; backdrop-filter: blur(10px); z-index: 1002;
                 `;
 
                 rightArrow = document.createElement('div');
                 rightArrow.id = 'lightboxNext';
                 rightArrow.innerHTML = '&#8250;';
                 rightArrow.style.cssText = `
-                    position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
-                    font-size: 4rem; color: white; cursor: pointer; user-select: none;
-                    background: rgba(0,0,0,0.5); width: 60px; height: 60px;
+                    position: absolute; right: ${isMobile ? '20px' : '-80px'}; top: 50%; transform: translateY(-50%);
+                    font-size: ${isMobile ? '3rem' : '4rem'}; color: white; cursor: pointer; user-select: none;
+                    background: rgba(0,0,0,0.7); width: ${isMobile ? '50px' : '60px'}; height: ${isMobile ? '50px' : '60px'};
                     border-radius: 50%; display: flex; align-items: center; justify-content: center;
-                    transition: all 0.3s ease; backdrop-filter: blur(10px);
+                    transition: all 0.3s ease; backdrop-filter: blur(10px); z-index: 1002;
                 `;
 
                 // Close
