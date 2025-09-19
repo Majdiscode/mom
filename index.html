@@ -740,7 +740,7 @@
                         <div style="display: none;">[Brentwood House - Living Room]</div>
                     </div>
                     <div class="portfolio-content">
-                        <button class="show-more-btn" onclick="openModal('Brentwood House')">Show More</button>
+                        <button class="show-more-btn" onclick="openBrentwoodSlideshow()">Show More</button>
                     </div>
                 </div>
             </div>
@@ -930,6 +930,15 @@
             document.getElementById('imageModal').style.display = 'block';
             document.getElementById('modalTitle').textContent = projectTitle + ' - Project Gallery';
             populateImageGrid(projectTitle);
+        }
+
+        // 🏠 ===== BRENTWOOD DIRECT SLIDESHOW =====
+        function openBrentwoodSlideshow() {
+            const brentwoodImages = projectImages['Brentwood House'] || [];
+            const validImages = brentwoodImages.filter(img => img && img !== '' && !img.includes('YOUR_IMAGE_URL'));
+            if (validImages.length > 0) {
+                openImageLightbox(validImages, 0, 'Brentwood House');
+            }
         }
 
         function closeModal() {
