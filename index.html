@@ -1112,9 +1112,9 @@
                 leftArrow.innerHTML = '&#8249;';
                 const isMobile = window.innerWidth <= 768;
                 leftArrow.style.cssText = `
-                    position: absolute; left: ${isMobile ? '20px' : '-80px'}; top: 50%; transform: translateY(-50%);
-                    font-size: ${isMobile ? '3rem' : '4rem'}; color: white; cursor: pointer; user-select: none;
-                    background: rgba(0,0,0,0.7); width: ${isMobile ? '50px' : '60px'}; height: ${isMobile ? '50px' : '60px'};
+                    position: absolute; bottom: -50px; left: calc(50% - 80px); transform: translateX(-50%);
+                    font-size: 1.5rem; color: white; cursor: pointer; user-select: none;
+                    background: rgba(0,0,0,0.7); width: 40px; height: 40px;
                     border-radius: 50%; display: flex; align-items: center; justify-content: center;
                     transition: all 0.3s ease; backdrop-filter: blur(10px); z-index: 1002;
                 `;
@@ -1123,9 +1123,9 @@
                 rightArrow.id = 'lightboxNext';
                 rightArrow.innerHTML = '&#8250;';
                 rightArrow.style.cssText = `
-                    position: absolute; right: ${isMobile ? '20px' : '-80px'}; top: 50%; transform: translateY(-50%);
-                    font-size: ${isMobile ? '3rem' : '4rem'}; color: white; cursor: pointer; user-select: none;
-                    background: rgba(0,0,0,0.7); width: ${isMobile ? '50px' : '60px'}; height: ${isMobile ? '50px' : '60px'};
+                    position: absolute; bottom: -50px; right: calc(50% - 80px); transform: translateX(50%);
+                    font-size: 1.5rem; color: white; cursor: pointer; user-select: none;
+                    background: rgba(0,0,0,0.7); width: 40px; height: 40px;
                     border-radius: 50%; display: flex; align-items: center; justify-content: center;
                     transition: all 0.3s ease; backdrop-filter: blur(10px); z-index: 1002;
                 `;
