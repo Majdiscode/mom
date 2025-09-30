@@ -409,6 +409,7 @@
             max-height: 80px !important;
             width: 100% !important;
             height: 80px !important;
+            box-sizing: border-box !important;
         }
 
         .image-slot:hover {
@@ -421,12 +422,14 @@
             width: 100% !important;
             height: 100% !important;
             object-fit: cover !important;
+            object-position: center !important;
             border-radius: 8px;
             max-width: none !important;
             max-height: none !important;
             min-width: 100% !important;
             min-height: 100% !important;
             display: block !important;
+            flex-shrink: 0 !important;
         }
 
         .image-slot.filled {
@@ -743,6 +746,17 @@
                         <button class="show-more-btn" onclick="openBrentwoodSlideshow()">Show More</button>
                     </div>
                 </div>
+
+                <!-- PROJECT 6: SF APT 2 (SIXTH) -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/Living1.jpg" alt="SF Apt 2 Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div style="display: none;">[SF Apt 2 - Living Room]</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <button class="show-more-btn" onclick="openModal('SF Apt 2')">Show More</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -922,6 +936,25 @@
                 '', // 10. Available for more images
                 '', // 11. Available for more images
                 ''  // 12. Available for more images
+            ],
+
+            // 🏙️ SF APT 2 - NEW PROJECT (USING SAME PATTERN AS BEALE STREET)
+            'SF Apt 2': [
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/Living1.jpg',
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/living2.jpg',
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/livign3.jpg',
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/kitchen.jpg',
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/kitchen2.jpg',
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/dining1.jpg',
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/bedroom.jpg',
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/bedroom2.jpg',
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/bathroom.jpg',
+                '', // 10. Available for more images
+                '', // 11. Available for more images
+                '', // 12. Available for more images
+                '', // 13. Available for more images
+                '', // 14. Available for more images
+                ''  // 15. Available for more images
             ]
         };
 
@@ -975,6 +1008,9 @@
             } else if (projectTitle === '400 Beale Street SF') {
                 imageGrid.className = 'image-grid default-grid';
                 var maxImages = 15; // 5x3 grid matching other projects
+            } else if (projectTitle === 'SF Apt 2') {
+                imageGrid.className = 'image-grid default-grid';
+                var maxImages = 15; // 5x3 grid matching Beale Street pattern
             } else {
                 imageGrid.className = 'image-grid default-grid';
                 var maxImages = 15; // 5x3 grid
@@ -1101,7 +1137,7 @@
                 mainImage = document.createElement('img');
                 mainImage.id = 'lightboxMainImg';
                 mainImage.style.cssText = `
-                    max-width: 100%; max-height: 100%; object-fit: contain;
+                    width: 70vw; height: 75vh; object-fit: cover;
                     transition: opacity 0.3s ease, transform 0.3s ease;
                     border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);
                 `;
