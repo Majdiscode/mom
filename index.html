@@ -1138,7 +1138,7 @@
                 mainImage = document.createElement('img');
                 mainImage.id = 'lightboxMainImg';
                 mainImage.style.cssText = `
-                    width: 80vw; height: 60vh; object-fit: cover;
+                    max-width: 90%; max-height: 90%; object-fit: contain;
                     transition: opacity 0.3s ease, transform 0.3s ease;
                     border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);
                 `;
