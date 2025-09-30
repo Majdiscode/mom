@@ -392,11 +392,19 @@
         }
 
         .image-grid.sf-apt-2-grid {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, 250px);
+            justify-content: center;
         }
 
+        .image-grid.sf-apt-2-grid .image-slot {
+            width: 250px !important;
+            height: 200px !important;
+            aspect-ratio: unset !important;
+        }
+
+
         .image-slot {
-            aspect-ratio: 1 !important;
+            aspect-ratio: 4/3 !important;
             background: #f0f0f0;
             border: 2px dashed #ddd;
             border-radius: 8px;
@@ -406,13 +414,10 @@
             color: #999;
             font-size: 0.7rem;
             transition: all 0.3s ease;
-            position: relative;
+            position: relative !important;
             overflow: hidden;
             cursor: pointer;
-            min-height: 80px !important;
-            max-height: 80px !important;
             width: 100% !important;
-            height: 80px !important;
         }
 
         .image-slot:hover {
@@ -422,14 +427,16 @@
         }
 
         .image-slot img {
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: cover !important;
-            border-radius: 8px;
-            max-width: none !important;
-            max-height: none !important;
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
             min-width: 100% !important;
             min-height: 100% !important;
+            width: auto !important;
+            height: auto !important;
+            object-fit: cover !important;
+            border-radius: 8px;
             display: block !important;
         }
 
@@ -642,9 +649,17 @@
             }
 
             .image-grid.sf-apt-2-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 150px);
+                justify-content: center;
                 gap: 1rem;
             }
+
+            .image-grid.sf-apt-2-grid .image-slot {
+                width: 150px !important;
+                height: 120px !important;
+                aspect-ratio: unset !important;
+            }
+
             
             .image-slot {
                 min-height: 60px;
@@ -756,7 +771,7 @@
                 <!-- PROJECT 6: SF APT 2 (SIXTH) -->
                 <div class="portfolio-item">
                     <div class="portfolio-image">
-                        <img src="https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/Living1.jpg" alt="SF Apt 2 Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="https://raw.githubusercontent.com/Majdiscode/mom/main/Living1.jpg" alt="SF Apt 2 Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div style="display: none;">[SF Apt 2 - Living Room]</div>
                     </div>
                     <div class="portfolio-content">
@@ -930,15 +945,15 @@
 
             // 🏠 SF APT 2 - NEW PROJECT WITH 9 IMAGES
             'SF Apt 2': [
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/bathroom.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/bedroom.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/bedroom2.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/dining1.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/kitchen.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/kitchen2.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/livign3.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/Living1.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/living2.jpg'
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/bathroom.jpg',
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/bedroom.jpg',
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/bedroom2.jpg',
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/dining1.jpg',
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/kitchen.jpg',
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/kitchen2.jpg',
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/livign3.jpg',
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Living1.jpg',
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/living2.jpg'
             ],
 
             // 🏠 BRENTWOOD HOUSE - NEW PROJECT
@@ -1148,7 +1163,7 @@
                 leftArrow.innerHTML = '&#8249;';
                 const isMobile = window.innerWidth <= 768;
                 leftArrow.style.cssText = `
-                    position: absolute; bottom: -50px; left: calc(50% - 80px); transform: translateX(-50%);
+                    position: absolute; bottom: 20px; left: calc(50% - 80px); transform: translateX(-50%);
                     font-size: 1.5rem; color: white; cursor: pointer; user-select: none;
                     background: rgba(0,0,0,0.7); width: 40px; height: 40px;
                     border-radius: 50%; display: flex; align-items: center; justify-content: center;
@@ -1159,7 +1174,7 @@
                 rightArrow.id = 'lightboxNext';
                 rightArrow.innerHTML = '&#8250;';
                 rightArrow.style.cssText = `
-                    position: absolute; bottom: -50px; right: calc(50% - 80px); transform: translateX(50%);
+                    position: absolute; bottom: 20px; right: calc(50% - 80px); transform: translateX(50%);
                     font-size: 1.5rem; color: white; cursor: pointer; user-select: none;
                     background: rgba(0,0,0,0.7); width: 40px; height: 40px;
                     border-radius: 50%; display: flex; align-items: center; justify-content: center;
@@ -1182,7 +1197,7 @@
                 counter = document.createElement('div');
                 counter.id = 'lightboxCounter';
                 counter.style.cssText = `
-                    position: absolute; bottom: -50px; left: 50%; transform: translateX(-50%);
+                    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
                     color: white; font-size: 1rem; background: rgba(0,0,0,0.5);
                     padding: 8px 16px; border-radius: 20px; backdrop-filter: blur(10px);
                 `;
