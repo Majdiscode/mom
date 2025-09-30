@@ -391,9 +391,6 @@
             grid-template-columns: repeat(5, 1fr);
         }
 
-        .image-grid.sf-apt-2-grid {
-            grid-template-columns: repeat(3, 1fr);
-        }
 
 
         .image-slot {
@@ -641,10 +638,6 @@
                 gap: 1rem;
             }
 
-            .image-grid.sf-apt-2-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1rem;
-            }
 
             
             .image-slot {
@@ -754,16 +747,6 @@
                     </div>
                 </div>
 
-                <!-- PROJECT 6: SF APT 2 (SIXTH) -->
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://raw.githubusercontent.com/Majdiscode/mom/main/Living1.jpg" alt="SF Apt 2 Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div style="display: none;">[SF Apt 2 - Living Room]</div>
-                    </div>
-                    <div class="portfolio-content">
-                        <button class="show-more-btn" onclick="openModal('SF Apt 2')">Show More</button>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -929,18 +912,6 @@
                 ''  // 15. Available for more images
             ],
 
-            // 🏠 SF APT 2 - NEW PROJECT WITH 9 IMAGES
-            'SF Apt 2': [
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/bathroom.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/bedroom.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/bedroom2.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/dining1.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/kitchen.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/kitchen2.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/livign3.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Living1.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/living2.jpg'
-            ],
 
             // 🏠 BRENTWOOD HOUSE - NEW PROJECT
             'Brentwood House': [
@@ -1009,9 +980,6 @@
             } else if (projectTitle === '400 Beale Street SF') {
                 imageGrid.className = 'image-grid default-grid';
                 var maxImages = 15; // 5x3 grid matching other projects
-            } else if (projectTitle === 'SF Apt 2') {
-                imageGrid.className = 'image-grid sf-apt-2-grid';
-                var maxImages = 9; // 3x3 grid for 9 images
             } else {
                 imageGrid.className = 'image-grid default-grid';
                 var maxImages = 15; // 5x3 grid
