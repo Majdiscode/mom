@@ -691,8 +691,18 @@
     <section id="portfolio" class="portfolio">
         <div class="container">
             <h2 class="section-title">Recent Projects</h2>
-            <div class="portfolio-grid">
-                <!-- PROJECT 1: SAN FRANCISCO APARTMENT (FIRST) -->
+            <div class="portfolio-grid">                <!-- PROJECT: 332 PHILIP DR APT 103 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/3bab6b533f479ad022a727692a44e783.jpg" alt="332 Philip Dr APT 103 Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div style="display: none;">[332 Philip Dr APT 103 - Main Room]</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <button class="show-more-btn" onclick="openModal('332 Philip Dr APT 103')">Show More</button>
+                    </div>
+                </div>
+
+<!-- PROJECT 1: SAN FRANCISCO APARTMENT (FIRST) -->
                 <div class="portfolio-item">
                     <div class="portfolio-image">
                         <img src="https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/d5e9ca039f9ba8d54ab534cf64abe43f-cc_ft_1536.webp" alt="SF Apartment Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -846,6 +856,28 @@
     <script>
         // 🖼️ ===== IMAGE CONFIGURATION SECTION =====
         const projectImages = {
+            // 🏠 332 PHILIP DR APT 103
+            '332 Philip Dr APT 103': [
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/3bab6b533f479ad022a727692a44e783.jpg',  // 1. 3bab6b533f479ad022a727692a44e783.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/6ccfb0f05cf31e226c91509d005cc995.jpg',  // 2. 6ccfb0f05cf31e226c91509d005cc995.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/13aa859af4d954a41d958e864270269b.jpg',  // 3. 13aa859af4d954a41d958e864270269b.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/58e3ac0ead896a28268c29cd86cc2c40.jpg',  // 4. 58e3ac0ead896a28268c29cd86cc2c40.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/089b7cde8feee5ab71ebb1aa7c14e33d.jpg',  // 5. 089b7cde8feee5ab71ebb1aa7c14e33d.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/4718ebc68f894aeec5e78e241bc9739e.jpg',  // 6. 4718ebc68f894aeec5e78e241bc9739e.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/6102c1af4f06bd087b19701645eb66af.jpg',  // 7. 6102c1af4f06bd087b19701645eb66af.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/92002cb9725089c9187bfbf1cd9ffa80.jpg',  // 8. 92002cb9725089c9187bfbf1cd9ffa80.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/c56a1c6b0925873c4fab22a13021d09d.jpg',  // 9. c56a1c6b0925873c4fab22a13021d09d.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/c4400f978a30a7d247457f6e05cb002a.jpg',  // 10. c4400f978a30a7d247457f6e05cb002a.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/ca2620895459e0c9a3b3ba71ff295692.jpg',  // 11. ca2620895459e0c9a3b3ba71ff295692.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/cf4afbda4b3efab888c1064728fa267c.jpg',  // 12. cf4afbda4b3efab888c1064728fa267c.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/e77f043c75ab3ff0a62cb22c3da26859.jpg'  // 13. e77f043c75ab3ff0a62cb22c3da26859.jpg
+                '',  // 14. Available for more images
+                '',  // 15. Available for more images
+                '',  // 16. Available for more images
+                '',  // 17. Available for more images
+                ''   // 18. Available for more images
+            ],
+
             // 🏠 DALY CITY CONDO - 12 IMAGES FOR 4x3 GRID
             'Daly City Condo': [
                 'https://raw.githubusercontent.com/Majdiscode/mom/main/DBathroom%232.jpg',  // 2. DBathroom#2
@@ -996,7 +1028,10 @@
             imageGrid.innerHTML = '';
             
             // Set grid class based on project
-            if (projectTitle === 'Danville House') {
+            if (projectTitle === '332 Philip Dr APT 103') {
+                imageGrid.className = 'image-grid default-grid';
+                var maxImages = 15; // 5x3 grid (15 images)
+            } else if (projectTitle === 'Danville House') {
                 imageGrid.className = 'image-grid default-grid';
                 var maxImages = 15; // 5x3 grid
             } else if (projectTitle === 'Daly City Condo') {
