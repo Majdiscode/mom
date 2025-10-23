@@ -1,0 +1,13 @@
+{
+  "name": "shibli-homestaging-website",
+  "version": "1.0.0",
+  "description": "Automation tools for Shibli Homestaging Services website",
+  "scripts": {
+    "add-project": "node scripts/add-project.js",
+    "auto-update": "node scripts/auto-update.js",
+    "resize-images": "node scripts/resize-images.js"
+  },
+  "keywords": ["home-staging", "portfolio", "automation"],
+  "author": "",
+  "license": "MIT"
+}

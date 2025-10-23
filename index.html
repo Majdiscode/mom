@@ -1161,71 +1161,122 @@
                     transition: opacity 0.3s ease; overflow: hidden;
                 `;
 
-                // Create image container
+                // Create image container with FIXED SIZE
                 const imageContainer = document.createElement('div');
                 imageContainer.style.cssText = `
-                    position: relative; max-width: 90%; max-height: 90%;
-                    display: flex; align-items: center; justify-content: center;
+                    position: relative;
+                    width: 85vw;
+                    height: 85vh;
+                    max-width: 1400px;
+                    max-height: 900px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 `;
 
                 // Check if mobile device
                 const isMobile = window.innerWidth <= 768;
 
-                // Main image
+                // Main image - will fit within the fixed container
                 mainImage = document.createElement('img');
                 mainImage.id = 'lightboxMainImg';
                 mainImage.style.cssText = isMobile ? `
-                    max-width: 95%; max-height: 95%; object-fit: contain;
+                    max-width: 100%; max-height: 100%; object-fit: contain;
                     transition: opacity 0.3s ease, transform 0.3s ease;
                     border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);
                 ` : `
-                    max-width: 70vw; max-height: 75vh; object-fit: contain;
+                    max-width: 100%; max-height: 100%; object-fit: contain;
                     transition: opacity 0.3s ease, transform 0.3s ease;
                     border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);
                 `;
 
-                // Arrows
+                // Arrows - FIXED POSITION on the sides
                 leftArrow = document.createElement('div');
                 leftArrow.id = 'lightboxPrev';
                 leftArrow.innerHTML = '&#8249;';
                 leftArrow.style.cssText = `
-                    position: absolute; bottom: -50px; left: calc(50% - 80px); transform: translateX(-50%);
-                    font-size: 1.5rem; color: white; cursor: pointer; user-select: none;
-                    background: rgba(0,0,0,0.7); width: 40px; height: 40px;
-                    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-                    transition: all 0.3s ease; backdrop-filter: blur(10px); z-index: 1002;
+                    position: absolute;
+                    left: -60px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-size: 2rem;
+                    color: white;
+                    cursor: pointer;
+                    user-select: none;
+                    background: rgba(0,0,0,0.7);
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.3s ease;
+                    backdrop-filter: blur(10px);
+                    z-index: 1002;
                 `;
 
                 rightArrow = document.createElement('div');
                 rightArrow.id = 'lightboxNext';
                 rightArrow.innerHTML = '&#8250;';
                 rightArrow.style.cssText = `
-                    position: absolute; bottom: -50px; right: calc(50% - 80px); transform: translateX(50%);
-                    font-size: 1.5rem; color: white; cursor: pointer; user-select: none;
-                    background: rgba(0,0,0,0.7); width: 40px; height: 40px;
-                    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-                    transition: all 0.3s ease; backdrop-filter: blur(10px); z-index: 1002;
+                    position: absolute;
+                    right: -60px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-size: 2rem;
+                    color: white;
+                    cursor: pointer;
+                    user-select: none;
+                    background: rgba(0,0,0,0.7);
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.3s ease;
+                    backdrop-filter: blur(10px);
+                    z-index: 1002;
                 `;
 
-                // Close
+                // Close button - FIXED POSITION at top right
                 closeBtn = document.createElement('div');
                 closeBtn.id = 'lightboxClose';
                 closeBtn.innerHTML = '×';
                 closeBtn.style.cssText = `
-                    position: absolute; top: -50px; right: -20px;
-                    font-size: 3rem; color: white; cursor: pointer; user-select: none;
-                    background: rgba(0,0,0,0.5); width: 50px; height: 50px;
-                    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-                    transition: all 0.3s ease; backdrop-filter: blur(10px);
+                    position: absolute;
+                    top: -60px;
+                    right: 0;
+                    font-size: 3rem;
+                    color: white;
+                    cursor: pointer;
+                    user-select: none;
+                    background: rgba(0,0,0,0.5);
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.3s ease;
+                    backdrop-filter: blur(10px);
                 `;
 
-                // Counter
+                // Counter - FIXED POSITION at bottom center
                 counter = document.createElement('div');
                 counter.id = 'lightboxCounter';
                 counter.style.cssText = `
-                    position: absolute; bottom: -50px; left: 50%; transform: translateX(-50%);
-                    color: white; font-size: 1rem; background: rgba(0,0,0,0.5);
-                    padding: 8px 16px; border-radius: 20px; backdrop-filter: blur(10px);
+                    position: absolute;
+                    bottom: -60px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    color: white;
+                    font-size: 1.1rem;
+                    background: rgba(0,0,0,0.7);
+                    padding: 10px 20px;
+                    border-radius: 25px;
+                    backdrop-filter: blur(10px);
+                    font-weight: 500;
                 `;
 
                 imageContainer.appendChild(mainImage);
