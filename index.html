@@ -1027,28 +1027,28 @@
             // Clear existing content
             imageGrid.innerHTML = '';
             
-            // Set grid class based on project
+            // Set grid class based on project (using largest grid that can be completely filled)
             if (projectTitle === '332 Philip Dr APT 103') {
-                imageGrid.className = 'image-grid default-grid';
-                var maxImages = 15; // 5x3 grid (15 images)
+                imageGrid.className = 'image-grid daly-city-grid';
+                var maxImages = 12; // 4x3 grid (13 images, fills 12 slots)
             } else if (projectTitle === 'Danville House') {
                 imageGrid.className = 'image-grid default-grid';
-                var maxImages = 15; // 5x3 grid
+                var maxImages = 15; // 5x3 grid (17 images, fills 15 slots)
             } else if (projectTitle === 'Daly City Condo') {
                 imageGrid.className = 'image-grid daly-city-grid';
-                var maxImages = 12; // 4x3 grid
+                var maxImages = 12; // 4x3 grid (12 images, fills 12 slots)
             } else if (projectTitle === 'Burlingame Apartment') {
                 imageGrid.className = 'image-grid luxury-grid';
-                var maxImages = 8; // 4x2 grid
+                var maxImages = 8; // 4x2 grid (8 images, fills 8 slots)
             } else if (projectTitle === '400 Beale Street SF') {
-                imageGrid.className = 'image-grid default-grid';
-                var maxImages = 15; // 5x3 grid matching other projects
+                imageGrid.className = 'image-grid daly-city-grid';
+                var maxImages = 12; // 4x3 grid (13 images, fills 12 slots)
             } else if (projectTitle === 'SF Apt 2') {
-                imageGrid.className = 'image-grid default-grid';
-                var maxImages = 15; // 5x3 grid matching Beale Street pattern
+                imageGrid.className = 'image-grid luxury-grid';
+                var maxImages = 8; // 4x2 grid (9 images, fills 8 slots)
             } else {
-                imageGrid.className = 'image-grid default-grid';
-                var maxImages = 15; // 5x3 grid
+                imageGrid.className = 'image-grid luxury-grid';
+                var maxImages = 8; // 4x2 grid (default smallest)
             }
             
             // Show images up to the max

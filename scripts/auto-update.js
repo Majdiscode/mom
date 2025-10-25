@@ -116,14 +116,24 @@ if (imageFiles.length === 0) {
 }
 
 // Determine grid type based on number of images
+// Use the largest grid that can be COMPLETELY FILLED
 function determineGridType(imageCount) {
-  if (imageCount <= 8) {
-    return { type: 'luxury-grid', cols: 4, rows: 2, max: 8, description: '4x2 grid (8 images)' };
-  } else if (imageCount <= 12) {
-    return { type: 'daly-city-grid', cols: 4, rows: 3, max: 12, description: '4x3 grid (12 images)' };
-  } else {
-    return { type: 'default-grid', cols: 5, rows: 3, max: 15, description: '5x3 grid (15 images)' };
+  // Available grids in order from largest to smallest
+  const grids = [
+    { type: 'default-grid', cols: 5, rows: 3, max: 15, description: '5x3 grid (15 images)' },
+    { type: 'daly-city-grid', cols: 4, rows: 3, max: 12, description: '4x3 grid (12 images)' },
+    { type: 'luxury-grid', cols: 4, rows: 2, max: 8, description: '4x2 grid (8 images)' }
+  ];
+
+  // Find the largest grid that can be completely filled (imageCount >= grid.max)
+  for (const grid of grids) {
+    if (imageCount >= grid.max) {
+      return grid;
+    }
   }
+
+  // If no grid can be completely filled, use the smallest one (4x2)
+  return grids[grids.length - 1];
 }
 
 const gridInfo = determineGridType(imageFiles.length);
