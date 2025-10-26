@@ -1281,11 +1281,30 @@
                     z-index: 1002;
                 `;
 
-                // Close button - FIXED POSITION at top right
+                // Close button - FIXED POSITION at top right (responsive for mobile)
                 closeBtn = document.createElement('div');
                 closeBtn.id = 'lightboxClose';
                 closeBtn.innerHTML = '×';
-                closeBtn.style.cssText = `
+                closeBtn.style.cssText = isMobile ? `
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    font-size: 3rem;
+                    color: white;
+                    cursor: pointer;
+                    user-select: none;
+                    background: rgba(0,0,0,0.8);
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.3s ease;
+                    backdrop-filter: blur(10px);
+                    touch-action: manipulation;
+                    -webkit-tap-highlight-color: transparent;
+                ` : `
                     position: absolute;
                     top: -60px;
                     right: 0;
@@ -1304,10 +1323,22 @@
                     backdrop-filter: blur(10px);
                 `;
 
-                // Counter - FIXED POSITION at bottom center
+                // Counter - FIXED POSITION at bottom center (responsive for mobile)
                 counter = document.createElement('div');
                 counter.id = 'lightboxCounter';
-                counter.style.cssText = `
+                counter.style.cssText = isMobile ? `
+                    position: absolute;
+                    bottom: 10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    color: white;
+                    font-size: 1rem;
+                    background: rgba(0,0,0,0.8);
+                    padding: 8px 16px;
+                    border-radius: 20px;
+                    backdrop-filter: blur(10px);
+                    font-weight: 500;
+                ` : `
                     position: absolute;
                     bottom: -60px;
                     left: 50%;
