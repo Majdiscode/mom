@@ -1190,11 +1190,32 @@
                     border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);
                 `;
 
-                // Arrows - FIXED POSITION on the sides
+                // Arrows - FIXED POSITION on the sides (responsive for mobile)
                 leftArrow = document.createElement('div');
                 leftArrow.id = 'lightboxPrev';
                 leftArrow.innerHTML = '&#8249;';
-                leftArrow.style.cssText = `
+                leftArrow.style.cssText = isMobile ? `
+                    position: absolute;
+                    left: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-size: 2.5rem;
+                    color: white;
+                    cursor: pointer;
+                    user-select: none;
+                    background: rgba(0,0,0,0.8);
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.3s ease;
+                    backdrop-filter: blur(10px);
+                    z-index: 1002;
+                    touch-action: manipulation;
+                    -webkit-tap-highlight-color: transparent;
+                ` : `
                     position: absolute;
                     left: -60px;
                     top: 50%;
@@ -1218,7 +1239,28 @@
                 rightArrow = document.createElement('div');
                 rightArrow.id = 'lightboxNext';
                 rightArrow.innerHTML = '&#8250;';
-                rightArrow.style.cssText = `
+                rightArrow.style.cssText = isMobile ? `
+                    position: absolute;
+                    right: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-size: 2.5rem;
+                    color: white;
+                    cursor: pointer;
+                    user-select: none;
+                    background: rgba(0,0,0,0.8);
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.3s ease;
+                    backdrop-filter: blur(10px);
+                    z-index: 1002;
+                    touch-action: manipulation;
+                    -webkit-tap-highlight-color: transparent;
+                ` : `
                     position: absolute;
                     right: -60px;
                     top: 50%;
@@ -1354,14 +1396,42 @@
             }
 
             // Bind events (fresh each time)
+            // Use both click and touch events for better mobile support
             leftArrow.onclick = showPrevious;
             rightArrow.onclick = showNext;
             closeBtn.onclick = closeLightbox;
+
+            // Add touch event listeners for mobile
+            leftArrow.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                showPrevious();
+            }, { passive: false });
+
+            rightArrow.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                showNext();
+            }, { passive: false });
+
+            closeBtn.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                closeLightbox();
+            }, { passive: false });
+
             overlay.onclick = (e) => { if (e.target === overlay) closeLightbox(); };
-            
-            // Prevent scroll and touch events on overlay
+
+            // Prevent scroll and touch events on overlay background
             overlay.addEventListener('wheel', (e) => e.preventDefault(), { passive: false });
-            overlay.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
+            overlay.addEventListener('touchmove', (e) => {
+                // Only prevent default if not touching the arrows or close button
+                if (!e.target.closest('#lightboxPrev') &&
+                    !e.target.closest('#lightboxNext') &&
+                    !e.target.closest('#lightboxClose')) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
 
             // Keyboard navigation — store handler on overlay so we can remove it later
             overlay._keydownHandler = function(e) {
