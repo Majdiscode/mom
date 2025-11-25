@@ -1287,15 +1287,15 @@
                 leftArrow.id = 'lightboxPrev';
                 leftArrow.innerHTML = '&#8249;';
                 leftArrow.style.cssText = isMobile ? `
-                    position: absolute;
-                    left: 10px;
-                    top: 50%;
-                    transform: translateY(-50%);
+                    position: fixed;
+                    bottom: 80px;
+                    left: calc(50% - 70px);
+                    transform: none;
                     font-size: 2.5rem;
                     color: white;
                     cursor: pointer;
                     user-select: none;
-                    background: rgba(0,0,0,0.8);
+                    background: rgba(0,0,0,0.9);
                     width: 60px;
                     height: 60px;
                     border-radius: 50%;
@@ -1307,6 +1307,7 @@
                     z-index: 1002;
                     touch-action: manipulation;
                     -webkit-tap-highlight-color: transparent;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
                 ` : `
                     position: absolute;
                     left: -60px;
@@ -1332,15 +1333,15 @@
                 rightArrow.id = 'lightboxNext';
                 rightArrow.innerHTML = '&#8250;';
                 rightArrow.style.cssText = isMobile ? `
-                    position: absolute;
-                    right: 10px;
-                    top: 50%;
-                    transform: translateY(-50%);
+                    position: fixed;
+                    bottom: 80px;
+                    right: calc(50% - 70px);
+                    transform: none;
                     font-size: 2.5rem;
                     color: white;
                     cursor: pointer;
                     user-select: none;
-                    background: rgba(0,0,0,0.8);
+                    background: rgba(0,0,0,0.9);
                     width: 60px;
                     height: 60px;
                     border-radius: 50%;
@@ -1352,6 +1353,7 @@
                     z-index: 1002;
                     touch-action: manipulation;
                     -webkit-tap-highlight-color: transparent;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
                 ` : `
                     position: absolute;
                     right: -60px;
