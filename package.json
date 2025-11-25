@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Automation tools for Shibli Homestaging Services website",
   "scripts": {
+    "convert-to-jpg": "node scripts/convert-to-jpg.js",
     "add-project": "node scripts/add-project.js",
     "auto-update": "node scripts/auto-update.js",
     "resize-images": "node scripts/resize-images.js"

@@ -16,7 +16,43 @@ This automation toolkit simplifies adding new projects to your portfolio website
 
 ## Available Scripts
 
-### 1. `npm run resize-images` (Image Standardization)
+### 1. `npm run convert-to-jpg` (Format Standardization - REQUIRED)
+
+**Use this when:** You have images in various formats (webp, png, gif, etc.) and need to convert them all to JPG.
+
+**What it does:**
+- Scans all images in folder
+- Converts ALL non-JPG formats to JPG
+- Deletes original files after successful conversion
+- Creates backup of originals in `_originals_backup` folder
+- Maintains image quality during conversion
+
+**Usage:**
+```bash
+npm run convert-to-jpg ./path/to/images
+```
+
+**Example:**
+```bash
+npm run convert-to-jpg "./Oakland House"
+npm run convert-to-jpg "./SF Apt 3"
+```
+
+**Benefits:**
+- Consistent format across entire website (JPG only)
+- Simplifies image management
+- Better browser compatibility
+- Automatic cleanup of old formats
+
+**Requirements:**
+- macOS: Uses built-in `sips` tool (no installation needed)
+- Other platforms: Requires ImageMagick (`brew install imagemagick`)
+
+**Supported input formats:** .webp, .png, .gif, .bmp, .tiff, .heic
+
+---
+
+### 2. `npm run resize-images` (Image Standardization)
 
 **Use this when:** You want to standardize all image sizes before uploading to prevent UI issues.
 
@@ -55,7 +91,7 @@ npm run resize-images "./SF Apt 3" 1400 900
 
 ---
 
-### 2. `npm run add-project` (Manual Mode)
+### 3. `npm run add-project` (Manual Mode)
 
 **Use this when:** You want to see the generated code first before updating the website.
 
@@ -83,7 +119,7 @@ npm run add-project "SF Apartment 3" "./SF Apt 3"
 
 ---
 
-### 3. `npm run auto-update` (Automatic Mode)
+### 4. `npm run auto-update` (Automatic Mode)
 
 **Use this when:** You want the script to automatically update `index.html` for you.
 
@@ -129,14 +165,21 @@ Mom Website/
   └── index.html
 ```
 
-### Step 2: Resize Images (Recommended)
+### Step 2: Convert Images to JPG (Required)
+```bash
+npm run convert-to-jpg "./Brentwood"
+```
+
+This converts all images to JPG format and deletes non-JPG originals. Creates backup of originals.
+
+### Step 3: Resize Images (Recommended)
 ```bash
 npm run resize-images "./Brentwood"
 ```
 
 This standardizes all image sizes to prevent lightbox arrow jumping. Creates backup of originals.
 
-### Step 3: Run the Automation Script
+### Step 4: Run the Automation Script
 
 **Option A: Manual (see code first)**
 ```bash
@@ -150,21 +193,21 @@ npm run auto-update "Brentwood House" ./Brentwood
 ```
 Review the changes in `index.html`.
 
-### Step 4: Upload Images to GitHub
+### Step 5: Upload Images to GitHub
 ```bash
 git add Brentwood/
 git commit -m "Add Brentwood House project images"
 git push
 ```
 
-### Step 5: Commit Website Changes
+### Step 6: Commit Website Changes
 ```bash
 git add index.html
 git commit -m "Add Brentwood House to portfolio"
 git push
 ```
 
-### Step 6: Update cPanel
+### Step 7: Update cPanel
 Log into cPanel and pull the latest changes from GitHub.
 
 ---
@@ -223,23 +266,26 @@ cp index.html.backup index.html
 ```bash
 # 1. Downloaded images to "Oakland House" folder
 
-# 2. Resize images for consistent sizing
+# 2. Convert all images to JPG format (REQUIRED)
+npm run convert-to-jpg "./Oakland House"
+
+# 3. Resize images for consistent sizing
 npm run resize-images "./Oakland House"
 
-# 3. Run automation
+# 4. Run automation
 npm run auto-update "Oakland House" "./Oakland House"
 
-# 4. Upload images to GitHub
+# 5. Upload images to GitHub
 git add "Oakland House/"
 git commit -m "Add Oakland House project images"
 git push
 
-# 5. Commit website changes
+# 6. Commit website changes
 git add index.html
 git commit -m "Add Oakland House to portfolio"
 git push
 
-# 6. Update cPanel (via web interface)
+# 7. Update cPanel (via web interface)
 ```
 
 Done! 🎉
@@ -249,6 +295,6 @@ Done! 🎉
 ## Time Saved
 
 **Old workflow:** ~15-20 minutes per project
-**New workflow:** ~3-4 minutes per project (including resize)
+**New workflow:** ~3-5 minutes per project (including conversion & resize)
 
-**Savings:** ~11-16 minutes per project! ⚡
+**Savings:** ~11-17 minutes per project! ⚡

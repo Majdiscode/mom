@@ -1,13 +1,26 @@
 # Quick Start Guide
 
-## New Project in 4 Steps
+## New Project in 5 Steps
 
 ### 1️⃣ Download & Organize Images
-- Download all Zillow images to a folder
+- Download all Zillow images to a folder (any format: webp, png, jpg, etc.)
 - Name them in order (e.g., 01-living.jpg, 02-kitchen.jpg, etc.)
 - Put folder in your project directory
 
-### 2️⃣ Resize Images (Optional but Recommended)
+### 2️⃣ Convert All Images to JPG (REQUIRED)
+```bash
+npm run convert-to-jpg "./FolderName"
+```
+
+**What it does:**
+✅ Converts ALL image formats (webp, png, gif, etc.) to JPG
+✅ Deletes original non-JPG files after conversion
+✅ Creates backup of originals in `_originals_backup`
+✅ Standardizes format for consistent website display
+
+**Why?** Website only uses JPG format for all images!
+
+### 3️⃣ Resize Images (Optional but Recommended)
 ```bash
 npm run resize-images "./FolderName"
 ```
@@ -20,7 +33,7 @@ npm run resize-images "./FolderName"
 
 **Why?** Prevents arrow jumping in lightbox viewer!
 
-### 3️⃣ Run Automation Script
+### 4️⃣ Run Automation Script
 ```bash
 npm run auto-update "Project Name" ./FolderName
 ```
@@ -32,7 +45,7 @@ npm run auto-update "Project Name" ./FolderName
 ✅ Adds project as **FIRST** on website
 ✅ Creates backup file
 
-### 4️⃣ Push to GitHub
+### 5️⃣ Push to GitHub
 ```bash
 git add .
 git commit -m "Add Project Name"
@@ -48,18 +61,21 @@ Then update cPanel. **Done!** 🎉
 ```bash
 # You downloaded "Oakland House" images to a folder
 
-# 1. Resize images for consistent sizing
+# 1. Convert all images to JPG format (REQUIRED)
+npm run convert-to-jpg "./Oakland House"
+
+# 2. Resize images for consistent sizing (Optional)
 npm run resize-images "./Oakland House"
 
-# 2. Add to website
+# 3. Add to website
 npm run auto-update "Oakland House" "./Oakland House"
 
-# 3. Review changes and push
+# 4. Review changes and push
 git add .
 git commit -m "Add Oakland House project"
 git push
 
-# 4. Update cPanel
+# 5. Update cPanel
 ```
 
 ---
@@ -74,21 +90,27 @@ git push
 
 ---
 
-## Three Tools Available
+## Four Tools Available
 
-### 1. Image Resizer (Recommended First Step)
+### 1. Format Converter (REQUIRED FIRST STEP)
+```bash
+npm run convert-to-jpg ./folder
+```
+Converts all images to JPG format. **Run this first!**
+
+### 2. Image Resizer (Recommended Second Step)
 ```bash
 npm run resize-images ./folder
 ```
 Standardizes image sizes to prevent UI jumping.
 
-### 2. Auto-Update (Recommended)
+### 3. Auto-Update (Recommended)
 ```bash
 npm run auto-update "Name" ./folder
 ```
 Directly updates `index.html` for you.
 
-### 3. Manual Preview
+### 4. Manual Preview
 ```bash
 npm run add-project "Name" ./folder
 ```
@@ -98,10 +120,11 @@ Shows code snippets to copy/paste manually.
 
 ## Important Notes
 
-✨ **Image Sizing**: Use resize tool BEFORE adding project
+✨ **Image Format**: ALWAYS convert to JPG first (required!)
+✨ **Image Sizing**: Use resize tool after conversion for best results
 ✨ **Images**: Use the order they appear in your folder
 ✨ **New projects**: Always added as FIRST project
 ✨ **Grid**: Automatically chosen based on image count
-✨ **Backup**: Always created before changes (both resize and auto-update)
+✨ **Backup**: Always created before changes (convert, resize, and auto-update)
 
 Need more details? See `README-AUTOMATION.md`

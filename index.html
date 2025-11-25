@@ -691,7 +691,18 @@
     <section id="portfolio" class="portfolio">
         <div class="container">
             <h2 class="section-title">Recent Projects</h2>
-            <div class="portfolio-grid">                <!-- PROJECT: 332 PHILIP DR APT 103 -->
+            <div class="portfolio-grid">                <!-- PROJECT: SF APT 3 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/3aaf2dea25d9f94c89230208345f3edd-cc_ft_768.jpg" alt="SF Apt 3 Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div style="display: none;">[SF Apt 3 - Main Room]</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <button class="show-more-btn" onclick="openModal('SF Apt 3')">Show More</button>
+                    </div>
+                </div>
+
+<!-- PROJECT: 332 PHILIP DR APT 103 -->
                 <div class="portfolio-item">
                     <div class="portfolio-image">
                         <img src="https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/3bab6b533f479ad022a727692a44e783.jpg" alt="332 Philip Dr APT 103 Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -856,6 +867,32 @@
     <script>
         // 🖼️ ===== IMAGE CONFIGURATION SECTION =====
         const projectImages = {
+            // 🏠 SF APT 3
+            'SF Apt 3': [
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/3aaf2dea25d9f94c89230208345f3edd-cc_ft_768.jpg',  // 1. 3aaf2dea25d9f94c89230208345f3edd-cc_ft_768.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/8fa37159174a326bd3571efa670cf982-cc_ft_768.jpg',  // 2. 8fa37159174a326bd3571efa670cf982-cc_ft_768.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/9c92631071bbbd6e2b999f7816c262bb-cc_ft_768.jpg',  // 3. 9c92631071bbbd6e2b999f7816c262bb-cc_ft_768.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/9ea356f0d2a0c7bf18e765d2ba72176b-cc_ft_768.jpg',  // 4. 9ea356f0d2a0c7bf18e765d2ba72176b-cc_ft_768.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/15e75cc4704e48f3db540486965f2026-cc_ft_1536.jpg',  // 5. 15e75cc4704e48f3db540486965f2026-cc_ft_1536.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/66f5a7c27542c44664236f72acfc6b8d-cc_ft_1536.jpg',  // 6. 66f5a7c27542c44664236f72acfc6b8d-cc_ft_1536.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/178af5b2253e2190dd4154c6879925d2-cc_ft_768.jpg',  // 7. 178af5b2253e2190dd4154c6879925d2-cc_ft_768.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/213c6f5d12073d7fb1cc56f7b29f74d3-cc_ft_768.jpg',  // 8. 213c6f5d12073d7fb1cc56f7b29f74d3-cc_ft_768.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/1046c3c8f55dbf8669e7dc908293cd6f-cc_ft_768.jpg',  // 9. 1046c3c8f55dbf8669e7dc908293cd6f-cc_ft_768.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/56397c615ff13fe9aca3f188361a912e-cc_ft_1536.jpg',  // 10. 56397c615ff13fe9aca3f188361a912e-cc_ft_1536.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/94464ce03632601387694b5c8142f22a-cc_ft_768.jpg',  // 11. 94464ce03632601387694b5c8142f22a-cc_ft_768.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/b77fb87e48f8b49b93f3b6df6382728f-cc_ft_1536.jpg',  // 12. b77fb87e48f8b49b93f3b6df6382728f-cc_ft_1536.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/b259f8395863c5785af4bae19e3e648d-cc_ft_768.jpg',  // 13. b259f8395863c5785af4bae19e3e648d-cc_ft_768.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/cb74bd674f50da54c9a33fc6f312107e-cc_ft_768.jpg',  // 14. cb74bd674f50da54c9a33fc6f312107e-cc_ft_768.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/d1f65831f0a3bc03d0fddb2e5b52bd70-cc_ft_1536.jpg',  // 15. d1f65831f0a3bc03d0fddb2e5b52bd70-cc_ft_1536.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/e264a293775e7f0cb953c925aa87781e-cc_ft_768.jpg',  // 16. e264a293775e7f0cb953c925aa87781e-cc_ft_768.jpg
+                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/f1a8e56cd31cc7e3521a3822add1c7a3-cc_ft_1536.jpg'  // 17. f1a8e56cd31cc7e3521a3822add1c7a3-cc_ft_1536.jpg
+                '',  // 18. Available for more images
+                '',  // 19. Available for more images
+                '',  // 20. Available for more images
+                '',  // 21. Available for more images
+                ''   // 22. Available for more images
+            ],
+
             // 🏠 332 PHILIP DR APT 103
             '332 Philip Dr APT 103': [
                 'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/3bab6b533f479ad022a727692a44e783.jpg',  // 1. 3bab6b533f479ad022a727692a44e783.jpg
@@ -1028,7 +1065,10 @@
             imageGrid.innerHTML = '';
             
             // Set grid class based on project (using largest grid that can be completely filled)
-            if (projectTitle === '332 Philip Dr APT 103') {
+            if (projectTitle === 'SF Apt 3') {
+                imageGrid.className = 'image-grid default-grid';
+                var maxImages = 15; // 5x3 grid (15 images)
+            } else             if (projectTitle === '332 Philip Dr APT 103') {
                 imageGrid.className = 'image-grid daly-city-grid';
                 var maxImages = 12; // 4x3 grid (13 images, fills 12 slots)
             } else if (projectTitle === 'Danville House') {
