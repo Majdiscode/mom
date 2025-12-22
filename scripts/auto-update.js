@@ -150,14 +150,14 @@ const githubBaseUrl = 'https://raw.githubusercontent.com/Majdiscode/mom/main/';
 let projectImagesCode = `            // 🏠 ${projectName.toUpperCase()}\n`;
 projectImagesCode += `            '${projectName}': [\n`;
 
+// Clean folder path: remove leading ./ and encode properly
+const cleanFolderName = folderName.replace(/^\.\//, '').replace(/^\.\\/, '');
+const encodedFolderName = cleanFolderName.split('/').map(part => encodeURIComponent(part)).join('/');
+
 imageFiles.forEach((file, index) => {
   const encodedFileName = encodeURIComponent(file);
-  const encodedFolderName = encodeURIComponent(folderName);
   const url = `${githubBaseUrl}${encodedFolderName}/${encodedFileName}`;
-  projectImagesCode += `                '${url}'`;
-  if (index < imageFiles.length - 1) {
-    projectImagesCode += ',';
-  }
+  projectImagesCode += `                '${url}',`;
   projectImagesCode += `  // ${index + 1}. ${file}\n`;
 });
 
@@ -172,7 +172,6 @@ projectImagesCode += `            ],\n`;
 // Generate portfolio HTML
 const firstImageFile = imageFiles[0];
 const encodedFirstFileName = encodeURIComponent(firstImageFile);
-const encodedFolderName = encodeURIComponent(folderName);
 const firstImageUrl = `${githubBaseUrl}${encodedFolderName}/${encodedFirstFileName}`;
 
 const portfolioHtml = `                <!-- PROJECT: ${projectName.toUpperCase()} -->
