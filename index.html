@@ -743,6 +743,7 @@
             border-radius: 24px;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
         }
 
         .slideshow-container {
@@ -937,6 +938,20 @@
             border-radius: 0;
             z-index: 2000;
             aspect-ratio: auto;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slideshow.fullscreen .slideshow-container {
+            max-height: 90vh;
+            max-width: 95vw;
+        }
+
+        .slideshow.fullscreen .slide img {
+            max-height: 85vh;
+            object-fit: contain;
         }
 
         .slideshow.fullscreen .slideshow-arrow {
