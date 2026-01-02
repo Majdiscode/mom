@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -124,8 +125,15 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(2deg);
+            }
         }
 
         .hero-content {
@@ -159,6 +167,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -385,6 +394,7 @@
                 opacity: 0;
                 transform: translateY(-50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -716,8 +726,326 @@
                 transform: translateY(0);
             }
         }
+
+        /* ===== SLIDESHOW STYLES ===== */
+        .slideshow-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .slideshow {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background: linear-gradient(135deg, #2c2016 0%, #1a1208 100%);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: scale(1.02);
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .slide-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f5deb3 0%, #d2b48c 50%, #c4a574 100%);
+            color: #5d4e37;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .slide-placeholder::before {
+            content: '📷';
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            filter: grayscale(0.3);
+        }
+
+        .slide-placeholder span {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            font-weight: 400;
+            margin-top: 0.5rem;
+        }
+
+        /* Navigation Arrows */
+        .slideshow-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            color: #3d3024;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        .slideshow-arrow:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .slideshow-arrow:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .slideshow-arrow.prev {
+            left: 20px;
+        }
+
+        .slideshow-arrow.next {
+            right: 20px;
+        }
+
+        /* Expand Button */
+        .slideshow-expand {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            font-size: 1.4rem;
+            color: #3d3024;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .slideshow-expand:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        /* Dot Indicators */
+        .slideshow-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 10px 16px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .slideshow-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            padding: 0;
+        }
+
+        .slideshow-dot:hover {
+            background: rgba(255, 255, 255, 0.7);
+            transform: scale(1.2);
+        }
+
+        .slideshow-dot.active {
+            background: white;
+            transform: scale(1.3);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Slide Counter */
+        .slideshow-counter {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        /* Fullscreen Mode */
+        .slideshow.fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            max-width: none;
+            border-radius: 0;
+            z-index: 2000;
+            aspect-ratio: auto;
+        }
+
+        .slideshow.fullscreen .slideshow-arrow {
+            width: 70px;
+            height: 70px;
+            font-size: 2.2rem;
+        }
+
+        .slideshow.fullscreen .slideshow-arrow.prev {
+            left: 30px;
+        }
+
+        .slideshow.fullscreen .slideshow-arrow.next {
+            right: 30px;
+        }
+
+        .slideshow.fullscreen .slideshow-expand {
+            top: 30px;
+            right: 30px;
+        }
+
+        .slideshow.fullscreen .slideshow-dots {
+            bottom: 30px;
+        }
+
+        .slideshow.fullscreen .slideshow-counter {
+            top: 30px;
+            left: 30px;
+        }
+
+        /* Responsive Slideshow */
+        @media (max-width: 768px) {
+            .slideshow {
+                border-radius: 16px;
+                aspect-ratio: 4 / 3;
+            }
+
+            .slideshow-arrow {
+                width: 44px;
+                height: 44px;
+                font-size: 1.4rem;
+            }
+
+            .slideshow-arrow.prev {
+                left: 10px;
+            }
+
+            .slideshow-arrow.next {
+                right: 10px;
+            }
+
+            .slideshow-expand {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+                top: 10px;
+                right: 10px;
+            }
+
+            .slideshow-dots {
+                bottom: 12px;
+                padding: 8px 12px;
+                gap: 8px;
+            }
+
+            .slideshow-dot {
+                width: 8px;
+                height: 8px;
+            }
+
+            .slideshow-counter {
+                top: 10px;
+                left: 10px;
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+
+            .slide-placeholder {
+                font-size: 1.1rem;
+            }
+
+            .slide-placeholder::before {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slideshow {
+                border-radius: 12px;
+            }
+
+            .slideshow-arrow {
+                width: 38px;
+                height: 38px;
+                font-size: 1.2rem;
+            }
+
+            .slideshow-dots {
+                gap: 6px;
+            }
+
+            .slideshow-dot {
+                width: 6px;
+                height: 6px;
+            }
+        }
     </style>
 </head>
+
 <body>
     <header>
         <nav class="container">
@@ -734,7 +1062,8 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Transform Your Property Into a Dream Home</h1>
-                <p>Professional home staging services that help properties sell faster and for better prices. We create inviting spaces that buyers can envision as their future home.</p>
+                <p>Professional home staging services that help properties sell faster and for better prices. We create
+                    inviting spaces that buyers can envision as their future home.</p>
                 <a href="#contact" class="cta-button">Get Started</a>
             </div>
         </div>
@@ -742,119 +1071,94 @@
 
     <section id="portfolio" class="portfolio">
         <div class="container">
-            <h2 class="section-title">Recent Projects</h2>
-            <div class="portfolio-grid">                <!-- PROJECT: HAYWARD -->
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://raw.githubusercontent.com/Majdiscode/mom/main/Hayward/064f715e2212b458db70e16ed96c14a4-uncropped_scaled_within_1536_1152.jpg" alt="Hayward Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div style="display: none;">[Hayward - Main Room]</div>
+            <h2 class="section-title">Our Work</h2>
+            <div class="slideshow-wrapper">
+                <div class="slideshow" id="mainSlideshow">
+                    <!-- Counter -->
+                    <div class="slideshow-counter">
+                        <span id="currentSlide">1</span> / <span id="totalSlides">12</span>
                     </div>
-                    <div class="portfolio-content">
-                        <button class="show-more-btn" onclick="openModal('Hayward')">Show More</button>
-                    </div>
-                </div>
 
-<!-- PROJECT: SF APT 3 -->
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/d1f65831f0a3bc03d0fddb2e5b52bd70-cc_ft_1536.jpg" alt="SF Apt 3 Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div style="display: none;">[SF Apt 3 - Main Room]</div>
-                    </div>
-                    <div class="portfolio-content">
-                        <button class="show-more-btn" onclick="openModal('SF Apt 3')">Show More</button>
-                    </div>
-                </div>
+                    <!-- Expand Button -->
+                    <button class="slideshow-expand" id="expandBtn" aria-label="Toggle Fullscreen">⛶</button>
 
-<!-- PROJECT: 332 PHILIP DR APT 103 -->
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/3bab6b533f479ad022a727692a44e783.jpg" alt="332 Philip Dr APT 103 Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div style="display: none;">[332 Philip Dr APT 103 - Main Room]</div>
-                    </div>
-                    <div class="portfolio-content">
-                        <button class="show-more-btn" onclick="openModal('332 Philip Dr APT 103')">Show More</button>
-                    </div>
-                </div>
+                    <!-- Navigation Arrows -->
+                    <button class="slideshow-arrow prev" id="prevBtn" aria-label="Previous Slide">‹</button>
+                    <button class="slideshow-arrow next" id="nextBtn" aria-label="Next Slide">›</button>
 
-                <!-- PROJECT 1: SF APT 2 (SECOND) -->
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/Living1.jpg" alt="SF Apt 2 Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div style="display: none;">[SF Apt 2 - Living Room]</div>
+                    <!-- Slides Container -->
+                    <div class="slideshow-container" id="slidesContainer">
+                        <!-- Slide 1 -->
+                        <div class="slide active" data-index="0">
+                            <img src="Final Images/28d8c7c33f03c98f1e88209093d08d8d.jpg" alt="Staged Living Room">
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="slide" data-index="1">
+                            <img src="Final Images/60be9d00045b27b80060e5439c84a6ee.jpg" alt="Staged Interior">
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="slide" data-index="2">
+                            <img src="Final Images/9621c92e5be17d2272eaaef9f5ff92b3.jpg" alt="Staged Bedroom">
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="slide" data-index="3">
+                            <img src="Final Images/c5767fd592d0dedb3e1084cb89da4b29.jpg" alt="Staged Room">
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="slide" data-index="4">
+                            <img src="Final Images/f5b949771d75cb87b9b66b7ee4661eb9.jpg" alt="Staged Space">
+                        </div>
+                        <!-- Slide 6 -->
+                        <div class="slide" data-index="5">
+                            <img src="Final Images/fc50688cdbc7746b474ea73c1da55f18.jpg" alt="Staged Home">
+                        </div>
+                        <!-- Slide 7 -->
+                        <div class="slide" data-index="6">
+                            <img src="Final Images/146_425072528_02.jpg" alt="Beale Street Living">
+                        </div>
+                        <!-- Slide 8 -->
+                        <div class="slide" data-index="7">
+                            <img src="Final Images/146_425072528_18.jpg" alt="Beale Street Interior">
+                        </div>
+                        <!-- Slide 9 -->
+                        <div class="slide" data-index="8">
+                            <img src="Final Images/146_425072528_21.jpg" alt="Beale Street Room">
+                        </div>
+                        <!-- Slide 10 -->
+                        <div class="slide" data-index="9">
+                            <img src="Final Images/6ee3938d9ae9641308cf3e16ae17b89f.jpg" alt="Staged Property">
+                        </div>
+                        <!-- Slide 11 -->
+                        <div class="slide" data-index="10">
+                            <img src="Final Images/45e1cf379e5fb87d7bc2d20fc72f9b00-uncropped_scaled_within_1536_1152.webp"
+                                alt="Staged Design">
+                        </div>
+                        <!-- Slide 12 -->
+                        <div class="slide" data-index="11">
+                            <img src="Final Images/28d8c7c33f03c98f1e88209093d08d8d-uncropped_scaled_within_1536_1152.webp"
+                                alt="Staged Living Area">
+                        </div>
                     </div>
-                    <div class="portfolio-content">
-                        <button class="show-more-btn" onclick="openModal('SF Apt 2')">Show More</button>
-                    </div>
-                </div>
 
-                <!-- PROJECT 2: 400 BEALE STREET SF (THIRD) -->
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://raw.githubusercontent.com/Majdiscode/mom/sf-apt/SF%20Apt/d5e9ca039f9ba8d54ab534cf64abe43f-cc_ft_1536.webp" alt="SF Apartment Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div style="display: none;">[400 Beale Street - Living Room]</div>
-                    </div>
-                    <div class="portfolio-content">
-                        <button class="show-more-btn" onclick="openModal('400 Beale Street SF')">Show More</button>
-                    </div>
-                </div>
-
-                <!-- PROJECT 3: DANVILLE HOUSE (FOURTH) -->
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src='https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0235.jpeg', alt="Danville House Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div style="display: none;">[Danville House - Living Room]</div>
-                    </div>
-                    <div class="portfolio-content">
-                        <button class="show-more-btn" onclick="openModal('Danville House')">Show More</button>
-                    </div>
-                </div>
-
-                <!-- PROJECT 4: DALY CITY CONDO (FIFTH) -->
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://raw.githubusercontent.com/Majdiscode/mom/main/DLiving%233.jpg" alt="Daly City Condo Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div style="display: none;">[Daly City Condo - Living Room]</div>
-                    </div>
-                    <div class="portfolio-content">
-                        <button class="show-more-btn" onclick="openModal('Daly City Condo')">Show More</button>
-                    </div>
-                </div>
-
-                <!-- PROJECT 5: BURLINGAME APARTMENT (SIXTH) -->
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_1112.jpeg" alt="New Project Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div style="display: none;">[New Project - Interior]</div>
-                    </div>
-                    <div class="portfolio-content">
-                        <button class="show-more-btn" onclick="openModal('Burlingame Apartment')">Show More</button>
-                    </div>
-                </div>
-
-                <!-- PROJECT 6: BRENTWOOD HOUSE (SEVENTH) -->
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://raw.githubusercontent.com/Majdiscode/mom/main/Brentwood/brentwood1.jpg" alt="Brentwood House Main Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div style="display: none;">[Brentwood House - Living Room]</div>
-                    </div>
-                    <div class="portfolio-content">
-                        <button class="show-more-btn" onclick="openBrentwoodSlideshow()">Show More</button>
+                    <!-- Dot Indicators -->
+                    <div class="slideshow-dots" id="dotsContainer">
+                        <button class="slideshow-dot active" data-index="0" aria-label="Go to slide 1"></button>
+                        <button class="slideshow-dot" data-index="1" aria-label="Go to slide 2"></button>
+                        <button class="slideshow-dot" data-index="2" aria-label="Go to slide 3"></button>
+                        <button class="slideshow-dot" data-index="3" aria-label="Go to slide 4"></button>
+                        <button class="slideshow-dot" data-index="4" aria-label="Go to slide 5"></button>
+                        <button class="slideshow-dot" data-index="5" aria-label="Go to slide 6"></button>
+                        <button class="slideshow-dot" data-index="6" aria-label="Go to slide 7"></button>
+                        <button class="slideshow-dot" data-index="7" aria-label="Go to slide 8"></button>
+                        <button class="slideshow-dot" data-index="8" aria-label="Go to slide 9"></button>
+                        <button class="slideshow-dot" data-index="9" aria-label="Go to slide 10"></button>
+                        <button class="slideshow-dot" data-index="10" aria-label="Go to slide 11"></button>
+                        <button class="slideshow-dot" data-index="11" aria-label="Go to slide 12"></button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Image Modal -->
-    <div id="imageModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h3 id="modalTitle">Project Images</h3>
-            <div class="image-grid" id="imageGrid">
-                <!-- Project images will be populated here by JavaScript -->
-            </div>
-        </div>
-    </div>
 
     <section id="contact" class="contact">
         <div class="container">
@@ -862,30 +1166,35 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <h3>Ready to Transform Your Property?</h3>
-                    <p>Contact us today for a consultation and see how professional staging can make the difference in selling your home quickly and at the best price.</p>
+                    <p>Contact us today for a consultation and see how professional staging can make the difference in
+                        selling your home quickly and at the best price.</p>
                     <ul class="contact-details">
                         <li>
                             <svg class="contact-icon" viewBox="0 0 24 24">
-                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                <path
+                                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                             </svg>
                             shibli.homestaging@gmail.com
                         </li>
                         <li>
                             <svg class="contact-icon" viewBox="0 0 24 24">
-                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                <path
+                                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                             </svg>
                             (415) 481-1950
                         </li>
                         <li>
                             <svg class="contact-icon" viewBox="0 0 24 24">
-                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                <path
+                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                             </svg>
                             Burlingame, CA
                         </li>
                         <li>
                             <svg class="contact-icon" viewBox="0 0 24 24">
-                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
-                                <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                <path
+                                    d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" />
+                                <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
                             </svg>
                             M-F: Open
                         </li>
@@ -910,10 +1219,10 @@
                             <label for="message">Message</label>
                             <textarea id="message" name="message" required></textarea>
                         </div>
-                        
+
                         <!-- Hidden fields for better email organization -->
                         <input type="hidden" name="_subject" value="New Contact from Shibli Home Staging Website">
-                        
+
                         <button type="submit" class="submit-button">Send Message</button>
                     </form>
                 </div>
@@ -928,698 +1237,152 @@
     </footer>
 
     <script>
-        // 🖼️ ===== IMAGE CONFIGURATION SECTION =====
-        const projectImages = {
-            // 🏠 HAYWARD (Full-size 1536x1024 images)
-            'Hayward': [
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Hayward/064f715e2212b458db70e16ed96c14a4-uncropped_scaled_within_1536_1152.jpg',  // 1
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Hayward/1519ac5a9a229985d9abe71ba80a8a22-uncropped_scaled_within_1536_1152.jpg',  // 2
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Hayward/28d8c7c33f03c98f1e88209093d08d8d-uncropped_scaled_within_1536_1152.jpg',  // 3
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Hayward/41a856bee6e777b00ea0c25aabab620b-uncropped_scaled_within_1536_1152.jpg',  // 4
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Hayward/45e1cf379e5fb87d7bc2d20fc72f9b00-uncropped_scaled_within_1536_1152.jpg',  // 5
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Hayward/56600113d448127db870d42d6c63c625-uncropped_scaled_within_1536_1152.jpg',  // 6
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Hayward/60be9d00045b27b80060e5439c84a6ee-uncropped_scaled_within_1536_1152.jpg',  // 7
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Hayward/94b1b01869224ed213b2e21cf7f35944-uncropped_scaled_within_1536_1152.jpg',  // 8
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Hayward/9621c92e5be17d2272eaaef9f5ff92b3-uncropped_scaled_within_1536_1152.jpg',  // 9
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Hayward/c0ce7766c6ae77dc81e9ddd22be2c3d8-uncropped_scaled_within_1536_1152.jpg',  // 10
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Hayward/c5767fd592d0dedb3e1084cb89da4b29-uncropped_scaled_within_1536_1152.jpg',  // 11
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Hayward/ebd0bff16b30a983e48965a783c83226-uncropped_scaled_within_1536_1152.jpg',  // 12
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Hayward/f5b949771d75cb87b9b66b7ee4661eb9-uncropped_scaled_within_1536_1152.jpg',  // 13
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Hayward/fc50688cdbc7746b474ea73c1da55f18-uncropped_scaled_within_1536_1152.jpg',  // 14
-            ],
+        // ===== SLIDESHOW FUNCTIONALITY =====
+        (function () {
+            const slideshow = document.getElementById('mainSlideshow');
+            const slidesContainer = document.getElementById('slidesContainer');
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.slideshow-dot');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const expandBtn = document.getElementById('expandBtn');
+            const currentSlideEl = document.getElementById('currentSlide');
+            const totalSlidesEl = document.getElementById('totalSlides');
 
-            // 🏠 SF APT 3
-            'SF Apt 3': [
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/d1f65831f0a3bc03d0fddb2e5b52bd70-cc_ft_1536.jpg',  // 1. d1f65831f0a3bc03d0fddb2e5b52bd70-cc_ft_1536.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/3aaf2dea25d9f94c89230208345f3edd-cc_ft_768.jpg',  // 2. 3aaf2dea25d9f94c89230208345f3edd-cc_ft_768.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/8fa37159174a326bd3571efa670cf982-cc_ft_768.jpg',  // 3. 8fa37159174a326bd3571efa670cf982-cc_ft_768.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/9c92631071bbbd6e2b999f7816c262bb-cc_ft_768.jpg',  // 4. 9c92631071bbbd6e2b999f7816c262bb-cc_ft_768.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/9ea356f0d2a0c7bf18e765d2ba72176b-cc_ft_768.jpg',  // 5. 9ea356f0d2a0c7bf18e765d2ba72176b-cc_ft_768.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/15e75cc4704e48f3db540486965f2026-cc_ft_1536.jpg',  // 6. 15e75cc4704e48f3db540486965f2026-cc_ft_1536.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/66f5a7c27542c44664236f72acfc6b8d-cc_ft_1536.jpg',  // 7. 66f5a7c27542c44664236f72acfc6b8d-cc_ft_1536.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/178af5b2253e2190dd4154c6879925d2-cc_ft_768.jpg',  // 8. 178af5b2253e2190dd4154c6879925d2-cc_ft_768.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/213c6f5d12073d7fb1cc56f7b29f74d3-cc_ft_768.jpg',  // 9. 213c6f5d12073d7fb1cc56f7b29f74d3-cc_ft_768.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/1046c3c8f55dbf8669e7dc908293cd6f-cc_ft_768.jpg',  // 10. 1046c3c8f55dbf8669e7dc908293cd6f-cc_ft_768.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/56397c615ff13fe9aca3f188361a912e-cc_ft_1536.jpg',  // 11. 56397c615ff13fe9aca3f188361a912e-cc_ft_1536.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/94464ce03632601387694b5c8142f22a-cc_ft_768.jpg',  // 12. 94464ce03632601387694b5c8142f22a-cc_ft_768.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/b77fb87e48f8b49b93f3b6df6382728f-cc_ft_1536.jpg',  // 13. b77fb87e48f8b49b93f3b6df6382728f-cc_ft_1536.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/b259f8395863c5785af4bae19e3e648d-cc_ft_768.jpg',  // 14. b259f8395863c5785af4bae19e3e648d-cc_ft_768.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/cb74bd674f50da54c9a33fc6f312107e-cc_ft_768.jpg',  // 15. cb74bd674f50da54c9a33fc6f312107e-cc_ft_768.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/e264a293775e7f0cb953c925aa87781e-cc_ft_768.jpg',  // 16. e264a293775e7f0cb953c925aa87781e-cc_ft_768.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%203/f1a8e56cd31cc7e3521a3822add1c7a3-cc_ft_1536.jpg',  // 17. f1a8e56cd31cc7e3521a3822add1c7a3-cc_ft_1536.jpg
-                '',  // 18. Available for more images
-                '',  // 19. Available for more images
-                '',  // 20. Available for more images
-                '',  // 21. Available for more images
-                ''   // 22. Available for more images
-            ],
+            let currentIndex = 0;
+            const totalSlides = slides.length;
 
-            // 🏠 332 PHILIP DR APT 103
-            '332 Philip Dr APT 103': [
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/3bab6b533f479ad022a727692a44e783.jpg',  // 1. 3bab6b533f479ad022a727692a44e783.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/6ccfb0f05cf31e226c91509d005cc995.jpg',  // 2. 6ccfb0f05cf31e226c91509d005cc995.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/13aa859af4d954a41d958e864270269b.jpg',  // 3. 13aa859af4d954a41d958e864270269b.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/58e3ac0ead896a28268c29cd86cc2c40.jpg',  // 4. 58e3ac0ead896a28268c29cd86cc2c40.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/089b7cde8feee5ab71ebb1aa7c14e33d.jpg',  // 5. 089b7cde8feee5ab71ebb1aa7c14e33d.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/4718ebc68f894aeec5e78e241bc9739e.jpg',  // 6. 4718ebc68f894aeec5e78e241bc9739e.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/6102c1af4f06bd087b19701645eb66af.jpg',  // 7. 6102c1af4f06bd087b19701645eb66af.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/92002cb9725089c9187bfbf1cd9ffa80.jpg',  // 8. 92002cb9725089c9187bfbf1cd9ffa80.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/c56a1c6b0925873c4fab22a13021d09d.jpg',  // 9. c56a1c6b0925873c4fab22a13021d09d.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/c4400f978a30a7d247457f6e05cb002a.jpg',  // 10. c4400f978a30a7d247457f6e05cb002a.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/ca2620895459e0c9a3b3ba71ff295692.jpg',  // 11. ca2620895459e0c9a3b3ba71ff295692.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/cf4afbda4b3efab888c1064728fa267c.jpg',  // 12. cf4afbda4b3efab888c1064728fa267c.jpg
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Daly%20City/332%20Philip%20Dr%20APT%20103/e77f043c75ab3ff0a62cb22c3da26859.jpg',  // 13. e77f043c75ab3ff0a62cb22c3da26859.jpg
-                '',  // 14. Available for more images
-                '',  // 15. Available for more images
-                '',  // 16. Available for more images
-                '',  // 17. Available for more images
-                ''   // 18. Available for more images
-            ],
+            // Update total slides display
+            totalSlidesEl.textContent = totalSlides;
 
-            // 🏠 DALY CITY CONDO - 12 IMAGES FOR 4x3 GRID
-            'Daly City Condo': [
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/DBathroom%232.jpg',  // 2. DBathroom#2
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/DBedroom%231.jpg',   // 3. DBedroom#1
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/DBedroom%232.jpg',   // 4. DBedroom#2
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/DDining%231.jpg',    // 5. DDining#1
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/DDining%232.jpg',    // 6. DDining#2
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/DKitchen%231.jpg',   // 7. DKitchen#1
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/DLiving%231.jpg',    // 8. DLiving#1
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/DLiving%232.jpg',    // 9. DLiving#2
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/DLiving%233.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/DSC_1594.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/DSC_1593.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/DSC_1600.jpg'    // 10. DLiving#3
-            ],
+            // Go to specific slide
+            function goToSlide(index) {
+                // Handle wrapping
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
 
-            // 🏡 DANVILLE HOUSE - EXPANDED GALLERY
-            'Danville House': [
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Bedroom%231.jpg',     // 1. Bedroom 1
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Bedroom%233.jpg',     // 2. Bedroom 3
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Bathroom%231.jpg',    // 3. Bathroom 1
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Bathroom%232.jpg',    // 4. Bathroom 2
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Dining%232.jpg',      // 5. Dining 2
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Kitchen%231.jpg',     // 6. Kitchen 1
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0186.jpg',        // 7. IMG_0186
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0188.jpg',        // 8. IMG_0188
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/FullSizeRender.jpeg', // 9. FullSizeRender
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0235.jpeg',       // 10. IMG_0235
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0236.jpeg',       // 11. IMG_0236
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0228.jpeg',       // 12. IMG_0228
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0189.jpeg',       // 13. IMG_0189
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0204.jpeg',       // 14. IMG_0204
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0217.jpeg',       // 15. IMG_0217
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0219.jpeg',       // 16. IMG_0219
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_0232.jpeg'        // 17. IMG_0232
-            ],
-
-            // 🏠 BURLINGAME APARTMENT - NEW PROJECT
-            'Burlingame Apartment': [
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_1108.jpeg',       // 1. IMG_1108
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_1109.jpeg',       // 2. IMG_1109
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_1110.jpeg',       // 3. IMG_1110
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_1111.jpeg',       // 4. IMG_1111
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_1750.jpeg',       // 6. IMG_1750
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_1763.jpeg',       // 7. IMG_1763
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/IMG_1703.jpg',        // 8. IMG_1703
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/LVRB.jpg',            // 9. LVRB
-                '', // 9. Available for more images
-                '', // 10. Available for more images
-                '', // 11. Available for more images
-                '', // 12. Available for more images
-                '', // 13. Available for more images
-                '', // 14. Available for more images
-                ''  // 15. Available for more images
-            ],
-
-            // 🏙️ 400 BEALE STREET SF APARTMENT - MANUALLY CONVERTED JPEG IMAGES
-            '400 Beale Street SF': [
-                // Using only the manually converted JPEG images from the "jpeg images" folder
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt/jpeg%20images/146_425072528_01.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt/jpeg%20images/146_425072528_02.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt/jpeg%20images/146_425072528_03.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt/jpeg%20images/146_425072528_04.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt/jpeg%20images/146_425072528_07.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt/jpeg%20images/146_425072528_09.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt/jpeg%20images/146_425072528_10.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt/jpeg%20images/146_425072528_15.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt/jpeg%20images/146_425072528_18.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt/jpeg%20images/146_425072528_21.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt/jpeg%20images/146_425072528_23.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt/jpeg%20images/146_425072528_28.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt/jpeg%20images/146_425072528_29.jpg',
-                '', // 14. Available for more images
-                ''  // 15. Available for more images
-            ],
-
-            // 🏠 BRENTWOOD HOUSE - NEW PROJECT
-            'Brentwood House': [
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Brentwood/brentwood1.jpg',    // 1. Main living area
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Brentwood/bedroom1.jpg',      // 2. Bedroom
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Brentwood/dining1.jpg',       // 3. Dining area
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Brentwood/bathroom1.jpg',     // 4. Bathroom
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/Brentwood/c13657dc10dad63a7909966aea9c8e42.jpg', // 5. New image
-                '', // 6. Available for more images
-                '', // 7. Available for more images
-                '', // 8. Available for more images
-                '', // 9. Available for more images
-                '', // 10. Available for more images
-                '', // 11. Available for more images
-                ''  // 12. Available for more images
-            ],
-
-            // 🏙️ SF APT 2 - NEW PROJECT (USING SAME PATTERN AS BEALE STREET)
-            'SF Apt 2': [
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/Living1.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/living2.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/livign3.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/kitchen.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/kitchen2.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/dining1.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/bedroom.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/bedroom2.jpg',
-                'https://raw.githubusercontent.com/Majdiscode/mom/main/SF%20Apt%202/bathroom.jpg',
-                '', // 10. Available for more images
-                '', // 11. Available for more images
-                '', // 12. Available for more images
-                '', // 13. Available for more images
-                '', // 14. Available for more images
-                ''  // 15. Available for more images
-            ]
-        };
-
-        // 🔧 ===== MODAL FUNCTIONALITY =====
-        function openModal(projectTitle) {
-            document.getElementById('imageModal').style.display = 'block';
-            document.getElementById('modalTitle').textContent = projectTitle + ' - Project Gallery';
-            populateImageGrid(projectTitle);
-        }
-
-        // 🏠 ===== BRENTWOOD DIRECT SLIDESHOW =====
-        function openBrentwoodSlideshow() {
-            const brentwoodImages = projectImages['Brentwood House'] || [];
-            const validImages = brentwoodImages.filter(img => img && img !== '' && !img.includes('YOUR_IMAGE_URL'));
-            if (validImages.length > 0) {
-                openImageLightbox(validImages, 0, 'Brentwood House');
-            }
-        }
-
-        function closeModal() {
-            document.getElementById('imageModal').style.display = 'none';
-        }
-
-        // Close modal when clicking outside of it
-        window.onclick = function(event) {
-            const modal = document.getElementById('imageModal');
-            if (event.target === modal) {
-                closeModal();
-            }
-        }
-
-        // 🖼️ Populate image grid with project images
-        function populateImageGrid(projectTitle) {
-            const imageGrid = document.getElementById('imageGrid');
-            const images = projectImages[projectTitle] || [];
-            const validImages = images.filter(img => img && img !== '' && !img.includes('YOUR_IMAGE_URL'));
-            
-            // Clear existing content
-            imageGrid.innerHTML = '';
-            
-            // Set grid class based on project (using largest grid that can be completely filled)
-            if (projectTitle === 'Hayward') {
-                imageGrid.className = 'image-grid daly-city-grid';
-                var maxImages = 12; // 4x3 grid (12 images)
-            } else             if (projectTitle === 'SF Apt 3') {
-                imageGrid.className = 'image-grid default-grid';
-                var maxImages = 15; // 5x3 grid (15 images)
-            } else             if (projectTitle === '332 Philip Dr APT 103') {
-                imageGrid.className = 'image-grid daly-city-grid';
-                var maxImages = 12; // 4x3 grid (13 images, fills 12 slots)
-            } else if (projectTitle === 'Danville House') {
-                imageGrid.className = 'image-grid default-grid';
-                var maxImages = 15; // 5x3 grid (17 images, fills 15 slots)
-            } else if (projectTitle === 'Daly City Condo') {
-                imageGrid.className = 'image-grid daly-city-grid';
-                var maxImages = 12; // 4x3 grid (12 images, fills 12 slots)
-            } else if (projectTitle === 'Burlingame Apartment') {
-                imageGrid.className = 'image-grid luxury-grid';
-                var maxImages = 8; // 4x2 grid (8 images, fills 8 slots)
-            } else if (projectTitle === '400 Beale Street SF') {
-                imageGrid.className = 'image-grid daly-city-grid';
-                var maxImages = 12; // 4x3 grid (13 images, fills 12 slots)
-            } else if (projectTitle === 'SF Apt 2') {
-                imageGrid.className = 'image-grid luxury-grid';
-                var maxImages = 8; // 4x2 grid (9 images, fills 8 slots)
-            } else {
-                imageGrid.className = 'image-grid luxury-grid';
-                var maxImages = 8; // 4x2 grid (default smallest)
-            }
-            
-            // Show images up to the max
-            const displayImages = validImages.slice(0, maxImages);
-            
-            // Create image slots directly in the grid
-            for (let i = 0; i < maxImages; i++) {
-                const slot = document.createElement('div');
-                slot.className = 'image-slot';
-                
-                if (i < displayImages.length) {
-                    // Display actual image
-                    const img = document.createElement('img');
-                    img.src = displayImages[i];
-                    img.alt = `${projectTitle} - Image ${i + 1}`;
-                    img.loading = 'lazy';
-                    
-                    img.onerror = function() {
-                        slot.innerHTML = `<span>Loading...<br><small>Image ${i + 1}</small></span>`;
-                        slot.classList.remove('filled');
-                    };
-                    img.onload = function() {
-                        slot.classList.add('filled');
-                    };
-                    
-                    // Add click to open slideshow from this image
-                    img.style.cursor = 'pointer';
-                    img.onclick = function() {
-                        openImageLightbox(validImages, i, projectTitle);
-                    };
-                    
-                    slot.appendChild(img);
-                    slot.classList.add('filled');
-                } else {
-                    // Hide empty slots
-                    slot.classList.add('hidden');
-                }
-                
-                imageGrid.appendChild(slot);
-            }
-            
-            // Add "View All Images" button if there are more images than the grid shows
-            if (validImages.length > maxImages) {
-                const buttonContainer = document.createElement('div');
-                buttonContainer.style.cssText = `
-                    grid-column: 1 / -1; 
-                    display: flex; 
-                    justify-content: center; 
-                    margin-top: 2rem;
-                `;
-                
-                const viewAllBtn = document.createElement('button');
-                viewAllBtn.textContent = `View All ${validImages.length} Images`;
-                viewAllBtn.style.cssText = `
-                    padding: 1rem 2rem;
-                    background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
-                    color: white; border: none; border-radius: 25px;
-                    font-weight: 600; font-size: 1rem; text-transform: uppercase;
-                    letter-spacing: 0.5px; cursor: pointer; transition: all 0.3s ease;
-                    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
-                `;
-                
-                viewAllBtn.onmouseenter = () => {
-                    viewAllBtn.style.transform = 'translateY(-2px)';
-                    viewAllBtn.style.boxShadow = '0 6px 20px rgba(139, 69, 19, 0.4)';
-                };
-                viewAllBtn.onmouseleave = () => {
-                    viewAllBtn.style.transform = 'translateY(0)';
-                    viewAllBtn.style.boxShadow = '0 4px 15px rgba(139, 69, 19, 0.3)';
-                };
-                
-                viewAllBtn.onclick = () => {
-                    openImageLightbox(validImages, 0, projectTitle);
-                };
-                
-                buttonContainer.appendChild(viewAllBtn);
-                imageGrid.appendChild(buttonContainer);
-            }
-        }
-
-        // 🔍 Image Lightbox with Navigation
-        function openImageLightbox(images, startIndex, projectTitle) {
-            // Filter out empty images
-            const validImages = images.filter(img => img && img !== '' && !img.includes('YOUR_IMAGE_URL'));
-            if (validImages.length === 0) return;
-
-            // Ensure startIndex is within bounds
-            let currentIndex = Math.max(0, Math.min(startIndex, validImages.length - 1));
-
-            // Reuse overlay if it already exists
-            let overlay = document.getElementById('imageLightbox');
-            let mainImage, leftArrow, rightArrow, closeBtn, counter;
-
-            // Helper to safely remove a previous keydown listener if any
-            function detachPreviousKeydownIfAny(node) {
-                if (node && node._keydownHandler) {
-                    document.removeEventListener('keydown', node._keydownHandler);
-                    node._keydownHandler = null;
-                }
-            }
-
-            if (!overlay) {
-                // Create overlay
-                overlay = document.createElement('div');
-                overlay.id = 'imageLightbox';
-                overlay.style.cssText = `
-                    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-                    background: rgba(0,0,0,0.95); z-index: 3000; display: flex;
-                    align-items: center; justify-content: center; opacity: 0;
-                    transition: opacity 0.3s ease; overflow: hidden;
-                `;
-
-                // Create image container with FIXED SIZE
-                const imageContainer = document.createElement('div');
-                imageContainer.style.cssText = `
-                    position: relative;
-                    width: 85vw;
-                    height: 85vh;
-                    max-width: 1400px;
-                    max-height: 900px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                `;
-
-                // Check if mobile device
-                const isMobile = window.innerWidth <= 768;
-
-                // Main image - will fit within the fixed container
-                mainImage = document.createElement('img');
-                mainImage.id = 'lightboxMainImg';
-                mainImage.style.cssText = isMobile ? `
-                    max-width: 100%; max-height: 100%; object-fit: contain;
-                    transition: opacity 0.3s ease, transform 0.3s ease;
-                    border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-                ` : `
-                    max-width: 100%; max-height: 100%; object-fit: contain;
-                    transition: opacity 0.3s ease, transform 0.3s ease;
-                    border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-                `;
-
-                // Arrows - FIXED POSITION on the sides (responsive for mobile)
-                leftArrow = document.createElement('div');
-                leftArrow.id = 'lightboxPrev';
-                leftArrow.innerHTML = '&#8249;';
-                leftArrow.style.cssText = isMobile ? `
-                    position: fixed;
-                    bottom: 80px;
-                    left: calc(50% - 70px);
-                    transform: none;
-                    font-size: 2.5rem;
-                    color: white;
-                    cursor: pointer;
-                    user-select: none;
-                    background: rgba(0,0,0,0.9);
-                    width: 60px;
-                    height: 60px;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    transition: all 0.3s ease;
-                    backdrop-filter: blur(10px);
-                    z-index: 1002;
-                    touch-action: manipulation;
-                    -webkit-tap-highlight-color: transparent;
-                    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-                ` : `
-                    position: absolute;
-                    left: -60px;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    font-size: 2rem;
-                    color: white;
-                    cursor: pointer;
-                    user-select: none;
-                    background: rgba(0,0,0,0.7);
-                    width: 50px;
-                    height: 50px;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    transition: all 0.3s ease;
-                    backdrop-filter: blur(10px);
-                    z-index: 1002;
-                `;
-
-                rightArrow = document.createElement('div');
-                rightArrow.id = 'lightboxNext';
-                rightArrow.innerHTML = '&#8250;';
-                rightArrow.style.cssText = isMobile ? `
-                    position: fixed;
-                    bottom: 80px;
-                    right: calc(50% - 70px);
-                    transform: none;
-                    font-size: 2.5rem;
-                    color: white;
-                    cursor: pointer;
-                    user-select: none;
-                    background: rgba(0,0,0,0.9);
-                    width: 60px;
-                    height: 60px;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    transition: all 0.3s ease;
-                    backdrop-filter: blur(10px);
-                    z-index: 1002;
-                    touch-action: manipulation;
-                    -webkit-tap-highlight-color: transparent;
-                    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-                ` : `
-                    position: absolute;
-                    right: -60px;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    font-size: 2rem;
-                    color: white;
-                    cursor: pointer;
-                    user-select: none;
-                    background: rgba(0,0,0,0.7);
-                    width: 50px;
-                    height: 50px;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    transition: all 0.3s ease;
-                    backdrop-filter: blur(10px);
-                    z-index: 1002;
-                `;
-
-                // Close button - FIXED POSITION at top right (responsive for mobile)
-                closeBtn = document.createElement('div');
-                closeBtn.id = 'lightboxClose';
-                closeBtn.innerHTML = '×';
-                closeBtn.style.cssText = isMobile ? `
-                    position: absolute;
-                    top: 10px;
-                    right: 10px;
-                    font-size: 3rem;
-                    color: white;
-                    cursor: pointer;
-                    user-select: none;
-                    background: rgba(0,0,0,0.8);
-                    width: 60px;
-                    height: 60px;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    transition: all 0.3s ease;
-                    backdrop-filter: blur(10px);
-                    touch-action: manipulation;
-                    -webkit-tap-highlight-color: transparent;
-                ` : `
-                    position: absolute;
-                    top: -60px;
-                    right: 0;
-                    font-size: 3rem;
-                    color: white;
-                    cursor: pointer;
-                    user-select: none;
-                    background: rgba(0,0,0,0.5);
-                    width: 50px;
-                    height: 50px;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    transition: all 0.3s ease;
-                    backdrop-filter: blur(10px);
-                `;
-
-                // Counter - FIXED POSITION at bottom center (responsive for mobile)
-                counter = document.createElement('div');
-                counter.id = 'lightboxCounter';
-                counter.style.cssText = isMobile ? `
-                    position: absolute;
-                    bottom: 10px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    color: white;
-                    font-size: 1rem;
-                    background: rgba(0,0,0,0.8);
-                    padding: 8px 16px;
-                    border-radius: 20px;
-                    backdrop-filter: blur(10px);
-                    font-weight: 500;
-                ` : `
-                    position: absolute;
-                    bottom: -60px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    color: white;
-                    font-size: 1.1rem;
-                    background: rgba(0,0,0,0.7);
-                    padding: 10px 20px;
-                    border-radius: 25px;
-                    backdrop-filter: blur(10px);
-                    font-weight: 500;
-                `;
-
-                imageContainer.appendChild(mainImage);
-                imageContainer.appendChild(leftArrow);
-                imageContainer.appendChild(rightArrow);
-                imageContainer.appendChild(closeBtn);
-                imageContainer.appendChild(counter);
-                overlay.appendChild(imageContainer);
-                document.body.appendChild(overlay);
-            } else {
-                // Grab existing nodes if overlay already exists
-                mainImage  = document.getElementById('lightboxMainImg');
-                leftArrow  = document.getElementById('lightboxPrev');
-                rightArrow = document.getElementById('lightboxNext');
-                closeBtn   = document.getElementById('lightboxClose');
-                counter    = document.getElementById('lightboxCounter');
-                // Detach any old keydown handler before adding a new one
-                detachPreviousKeydownIfAny(overlay);
-            }
-
-            // Update arrows enabled/disabled look at edges
-            function refreshArrowState() {
-                const atStart = currentIndex === 0;
-                const atEnd   = currentIndex === validImages.length - 1;
-                leftArrow.style.opacity  = atStart ? '0.35' : '0.7';
-                rightArrow.style.opacity = atEnd   ? '0.35' : '0.7';
-                leftArrow.style.pointerEvents  = atStart ? 'none' : 'auto';
-                rightArrow.style.pointerEvents = atEnd   ? 'none' : 'auto';
-            }
-
-            // Swap main image
-            function updateImage(index) {
-                if (index < 0 || index >= validImages.length) return;
-                mainImage.style.opacity = '0';
-                mainImage.style.transform = 'scale(0.97)';
-                setTimeout(() => {
-                    mainImage.src = validImages[index];
-                    mainImage.alt = `${projectTitle} - Image ${index + 1}`;
-                    counter.textContent = `${index + 1} / ${validImages.length}`;
-                    mainImage.style.opacity = '1';
-                    mainImage.style.transform = 'scale(1)';
-                    refreshArrowState();
-                }, 120);
-            }
-
-            // Navigation
-            function showPrevious() {
-                if (currentIndex > 0) {
-                    currentIndex -= 1;
-                    updateImage(currentIndex);
-                }
-            }
-            function showNext() {
-                if (currentIndex < validImages.length - 1) {
-                    currentIndex += 1;
-                    updateImage(currentIndex);
-                }
-            }
-
-            // Close and cleanup
-            function closeLightbox() {
-                // Unlock body scroll when lightbox closes
-                document.body.style.overflow = '';
-                document.body.style.position = '';
-                document.body.style.width = '';
-                
-                overlay.style.opacity = '0';
-                setTimeout(() => {
-                    // Fully remove overlay from DOM to guarantee a clean state next open
-                    if (overlay && overlay.parentNode) {
-                        detachPreviousKeydownIfAny(overlay);
-                        overlay.parentNode.removeChild(overlay);
+                // Update slides
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                    if (i === index) {
+                        slide.classList.add('active');
                     }
-                }, 300);
+                });
+
+                // Update dots
+                dots.forEach((dot, i) => {
+                    dot.classList.remove('active');
+                    if (i === index) {
+                        dot.classList.add('active');
+                    }
+                });
+
+                // Update counter
+                currentSlideEl.textContent = index + 1;
+                currentIndex = index;
             }
 
-            // Bind events (fresh each time)
-            // Use both click and touch events for better mobile support
-            leftArrow.onclick = showPrevious;
-            rightArrow.onclick = showNext;
-            closeBtn.onclick = closeLightbox;
+            // Navigation functions
+            function nextSlide() {
+                goToSlide(currentIndex + 1);
+            }
 
-            // Add touch event listeners for mobile
-            leftArrow.addEventListener('touchend', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                showPrevious();
-            }, { passive: false });
+            function prevSlide() {
+                goToSlide(currentIndex - 1);
+            }
 
-            rightArrow.addEventListener('touchend', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                showNext();
-            }, { passive: false });
+            // Event listeners for arrows
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
 
-            closeBtn.addEventListener('touchend', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                closeLightbox();
-            }, { passive: false });
+            // Event listeners for dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => goToSlide(index));
+            });
 
-            overlay.onclick = (e) => { if (e.target === overlay) closeLightbox(); };
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                // Only respond if slideshow is in view or fullscreen
+                const rect = slideshow.getBoundingClientRect();
+                const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+                const isFullscreen = slideshow.classList.contains('fullscreen');
 
-            // Prevent scroll and touch events on overlay background
-            overlay.addEventListener('wheel', (e) => e.preventDefault(), { passive: false });
-            overlay.addEventListener('touchmove', (e) => {
-                // Only prevent default if not touching the arrows or close button
-                if (!e.target.closest('#lightboxPrev') &&
-                    !e.target.closest('#lightboxNext') &&
-                    !e.target.closest('#lightboxClose')) {
-                    e.preventDefault();
+                if (isInView || isFullscreen) {
+                    if (e.key === 'ArrowRight') {
+                        e.preventDefault();
+                        nextSlide();
+                    } else if (e.key === 'ArrowLeft') {
+                        e.preventDefault();
+                        prevSlide();
+                    } else if (e.key === 'Escape' && isFullscreen) {
+                        e.preventDefault();
+                        toggleFullscreen();
+                    }
                 }
-            }, { passive: false });
+            });
 
-            // Keyboard navigation — store handler on overlay so we can remove it later
-            overlay._keydownHandler = function(e) {
-                if (e.key === 'ArrowLeft')  { e.preventDefault(); showPrevious(); }
-                if (e.key === 'ArrowRight') { e.preventDefault(); showNext(); }
-                if (e.key === 'Escape')     { e.preventDefault(); closeLightbox(); }
-            };
-            document.addEventListener('keydown', overlay._keydownHandler);
+            // Touch/Swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+            const minSwipeDistance = 50;
 
-            // Lock body scroll when lightbox opens
-            document.body.style.overflow = 'hidden';
-            document.body.style.position = 'fixed';
-            document.body.style.width = '100%';
-            
-            // Initialize and show
-            updateImage(currentIndex);
-            requestAnimationFrame(() => { overlay.style.opacity = '1'; });
-        }
+            slidesContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
 
-        // 📧 Contact Form Handling with Formspree
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            slidesContainer.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+
+            function handleSwipe() {
+                const swipeDistance = touchEndX - touchStartX;
+                if (Math.abs(swipeDistance) > minSwipeDistance) {
+                    if (swipeDistance > 0) {
+                        prevSlide(); // Swipe right = previous
+                    } else {
+                        nextSlide(); // Swipe left = next
+                    }
+                }
+            }
+
+            // Fullscreen toggle
+            function toggleFullscreen() {
+                slideshow.classList.toggle('fullscreen');
+
+                if (slideshow.classList.contains('fullscreen')) {
+                    expandBtn.innerHTML = '✕';
+                    expandBtn.setAttribute('aria-label', 'Exit Fullscreen');
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    expandBtn.innerHTML = '⛶';
+                    expandBtn.setAttribute('aria-label', 'Toggle Fullscreen');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            expandBtn.addEventListener('click', toggleFullscreen);
+
+            // Close fullscreen on background click
+            slideshow.addEventListener('click', (e) => {
+                if (e.target === slideshow && slideshow.classList.contains('fullscreen')) {
+                    toggleFullscreen();
+                }
+            });
+        })();
+
+        // ===== CONTACT FORM HANDLING =====
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
             const submitButton = document.querySelector('.submit-button');
             const originalText = submitButton.textContent;
-            
+
             // Show loading state
             submitButton.textContent = 'Sending...';
             submitButton.disabled = true;
             submitButton.style.opacity = '0.7';
-            
-            // Reset button after form submission (whether success or error)
-            setTimeout(function() {
+
+            // Reset button after form submission
+            setTimeout(function () {
                 submitButton.textContent = originalText;
                 submitButton.disabled = false;
                 submitButton.style.opacity = '1';
@@ -1627,18 +1390,18 @@
         });
 
         // Reset form and button if user stays on page
-        window.addEventListener('pageshow', function(event) {
+        window.addEventListener('pageshow', function (event) {
             const submitButton = document.querySelector('.submit-button');
             const form = document.getElementById('contactForm');
-            
+
             // Reset button state
             submitButton.textContent = 'Send Message';
             submitButton.disabled = false;
             submitButton.style.opacity = '1';
-            
+
             // Show success message if coming back from Formspree
             if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
-                setTimeout(function() {
+                setTimeout(function () {
                     alert('✅ Thank you! Your message has been sent successfully. We\'ll get back to you soon!');
                     form.reset();
                 }, 500);
@@ -1646,7 +1409,7 @@
         });
 
         // Show success message if redirected back from Formspree
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             if (window.location.search.includes('success') || window.location.hash.includes('success')) {
                 alert('✅ Thank you! Your message has been sent successfully. We\'ll get back to you soon!');
                 if (window.history.replaceState) {
@@ -1655,7 +1418,7 @@
             }
         });
 
-        // 🎯 Add smooth scrolling for navigation links
+        // ===== SMOOTH SCROLLING =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1669,7 +1432,7 @@
             });
         });
 
-        // 🎨 Add scroll animations
+        // ===== SCROLL ANIMATIONS =====
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1683,10 +1446,12 @@
             });
         }, observerOptions);
 
-        // Observe elements for animation
-        document.querySelectorAll('.portfolio-item').forEach(el => {
-            observer.observe(el);
-        });
+        // Observe slideshow for animation
+        const slideshowWrapper = document.querySelector('.slideshow-wrapper');
+        if (slideshowWrapper) {
+            observer.observe(slideshowWrapper);
+        }
     </script>
 </body>
+
 </html>
