@@ -3,7 +3,7 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/shibliho/public_html/
     - /bin/cp index.html $DEPLOYPATH
-    - /bin/cp -R "Daly City" $DEPLOYPATH
-    - /bin/cp -R "Danville" $DEPLOYPATH
-    - /bin/cp *.jpeg $DEPLOYPATH
-    - /bin/cp *.md $DEPLOYPATH
+    - /bin/mkdir -p $DEPLOYPATH/css
+    - /bin/mkdir -p $DEPLOYPATH/js
+    - /bin/cp css/styles.css $DEPLOYPATH/css/
+    - /bin/cp js/script.js $DEPLOYPATH/js/
