@@ -1,6 +1,7 @@
 // ===== SLIDESHOW IMAGES =====
 // Add or remove images here - everything else auto-updates
 const slideshowImages = [
+
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/45e1cf379e5fb87d7bc2d20fc72f9b00-uncropped_scaled_within_1536_1152.webp', alt: 'Staged Design' },
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/60be9d00045b27b80060e5439c84a6ee.jpg', alt: 'Staged Interior' },
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/9621c92e5be17d2272eaaef9f5ff92b3.jpg', alt: 'Staged Bedroom' },
@@ -11,7 +12,37 @@ const slideshowImages = [
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/146_425072528_18.jpg', alt: 'Beale Street Interior' },
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/146_425072528_21.jpg', alt: 'Beale Street Room' },
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/6ee3938d9ae9641308cf3e16ae17b89f.jpg', alt: 'Staged Property' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/28d8c7c33f03c98f1e88209093d08d8d.jpg', alt: 'Staged Living Room' }
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/28d8c7c33f03c98f1e88209093d08d8d.jpg', alt: 'Staged Living Room' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/0bb6523a19d56626eb79e0cab004e52d-cc_ft_768(1).JPEG', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/0bb6523a19d56626eb79e0cab004e52d-cc_ft_768.JPEG', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/13aa859af4d954a41d958e864270269b.JPEG', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/1519ac5a9a229985d9abe71ba80a8a22-cc_ft_1536.JPEG', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/6102c1af4f06bd087b19701645eb66af.JPEG', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/92002cb9725089c9187bfbf1cd9ffa80(1).JPEG', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/92002cb9725089c9187bfbf1cd9ffa80.JPEG', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/Bathroom%234.JPEG', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/Bedroom%231.JPEG', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/DDining%231.JPEG', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/DSC_1600.JPEG', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/Dining%232.JPEG', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/File_000(1).jpg', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/File_000(2).jpg', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/File_000(3).jpg', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/File_000(4).jpg', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/File_000(5).jpg', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/File_000.jpg', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/IMG_0186.jpeg', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/IMG_0189.jpeg', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/IMG_0217.jpeg', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/IMG_0228.JPEG', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/IMG_0235.jpeg', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/IMG_0255.JPEG', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/bathroom1.JPEG', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/bedroom1.JPEG', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/c4400f978a30a7d247457f6e05cb002a.JPEG', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/ca2620895459e0c9a3b3ba71ff295692.JPEG', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/fc50688cdbc7746b474ea73c1da55f18-cc_ft_1536.JPEG', alt: 'Staged Property' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/livign3.JPEG', alt: 'Staged Property' }
 ];
 
 // ===== SLIDESHOW FUNCTIONALITY =====
