@@ -46,7 +46,7 @@ const slideshowImages = [
 ];
 
 // ===== SLIDESHOW FUNCTIONALITY =====
-(function() {
+(function () {
     const slideshow = document.getElementById('mainSlideshow');
     const slidesContainer = document.getElementById('slidesContainer');
     const dotsContainer = document.getElementById('dotsContainer');
@@ -72,14 +72,22 @@ const slideshowImages = [
             slide.innerHTML = `<img src="${image.src}" alt="${image.alt}">`;
             slidesContainer.appendChild(slide);
 
-            // Create dot
-            const dot = document.createElement('button');
-            dot.className = `slideshow-dot${index === 0 ? ' active' : ''}`;
-            dot.dataset.index = index;
-            dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-            dot.addEventListener('click', () => goToSlide(index));
-            dotsContainer.appendChild(dot);
+            // Only create dots if we have a reasonable number of slides (e.g., <= 15)
+            // Otherwise, it gets too cluttered. The counter text is sufficient.
+            if (totalSlides <= 15) {
+                const dot = document.createElement('button');
+                dot.className = `slideshow-dot${index === 0 ? ' active' : ''}`;
+                dot.dataset.index = index;
+                dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            }
         });
+
+        // Hide dots container visually if no dots are created to prevent empty padding
+        if (totalSlides > 15) {
+            dotsContainer.style.display = 'none';
+        }
 
         // Update counter
         totalSlidesEl.textContent = totalSlides;
@@ -143,12 +151,12 @@ const slideshowImages = [
 })();
 
 // ===== CONTACT FORM =====
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+document.getElementById('contactForm').addEventListener('submit', function (e) {
     const btn = document.querySelector('.submit-button');
     btn.textContent = 'Sending...';
     btn.disabled = true;
     btn.style.opacity = '0.7';
-    
+
     setTimeout(() => {
         btn.textContent = 'Send Message';
         btn.disabled = false;
@@ -158,7 +166,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 
 // ===== SMOOTH SCROLLING =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
