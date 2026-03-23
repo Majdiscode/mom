@@ -2,21 +2,6 @@
 // Add or remove images here - everything else auto-updates
 const slideshowImages = [
 
-    // San Francisco Apartment
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/1789ce285b5199465ef1c8c8b36b5412-uncropped_scaled_within_1536_1152.jpg', alt: 'SF Apartment Staged' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/4b8208295eb0801214dd1e3f2ed93f66-uncropped_scaled_within_1536_1152.jpg', alt: 'SF Apartment Staged' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/5a30fb4b7df07254e7d83289c434b716-uncropped_scaled_within_1536_1152.jpg', alt: 'SF Apartment Staged' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/793aa53afccfdd978c662bb11c4760f9-uncropped_scaled_within_1536_1152.jpg', alt: 'SF Apartment Staged' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/971437bbaec69ecc4af1fe6c6944830c-uncropped_scaled_within_1536_1152.jpg', alt: 'SF Apartment Staged' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/979489aface36ae97ee31db8d809b64b-uncropped_scaled_within_1536_1152.jpg', alt: 'SF Apartment Staged' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/a5e22a2d56bedfc7d81acb6f89655a33-uncropped_scaled_within_1536_1152.jpg', alt: 'SF Apartment Staged' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/c6af2b61b7cab864d98c31fc160d5829-uncropped_scaled_within_1536_1152.jpg', alt: 'SF Apartment Staged' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/d07489e8bdac729d7938fb749d00bd56-uncropped_scaled_within_1536_1152.jpg', alt: 'SF Apartment Staged' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/ded3a4890c63d5bb329ef5475373cd5c-uncropped_scaled_within_1536_1152.jpg', alt: 'SF Apartment Staged' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/e836aa731da2c09d22c056cfa985ce31-uncropped_scaled_within_1536_1152.jpg', alt: 'SF Apartment Staged' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/f8506eaf6bcb6b47457c881d8a9ddb51-uncropped_scaled_within_1536_1152.jpg', alt: 'SF Apartment Staged' },
-
-    // Previous projects
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/45e1cf379e5fb87d7bc2d20fc72f9b00-uncropped_scaled_within_1536_1152.webp?v=2', alt: 'Staged Design' },
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/60be9d00045b27b80060e5439c84a6ee.jpg?v=2', alt: 'Staged Interior' },
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/9621c92e5be17d2272eaaef9f5ff92b3.jpg?v=2', alt: 'Staged Bedroom' },
@@ -54,7 +39,21 @@ const slideshowImages = [
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/c4400f978a30a7d247457f6e05cb002a.JPEG?v=2', alt: 'Staged Property' },
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/ca2620895459e0c9a3b3ba71ff295692.JPEG?v=2', alt: 'Staged Property' },
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/fc50688cdbc7746b474ea73c1da55f18-cc_ft_1536.JPEG?v=2', alt: 'Staged Property' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/livign3.JPEG?v=2', alt: 'Staged Property' }
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/livign3.JPEG?v=2', alt: 'Staged Property' },
+
+    // San Francisco Apartment
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/1789ce285b5199465ef1c8c8b36b5412-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/4b8208295eb0801214dd1e3f2ed93f66-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/5a30fb4b7df07254e7d83289c434b716-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/793aa53afccfdd978c662bb11c4760f9-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/971437bbaec69ecc4af1fe6c6944830c-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/979489aface36ae97ee31db8d809b64b-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/a5e22a2d56bedfc7d81acb6f89655a33-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/c6af2b61b7cab864d98c31fc160d5829-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/d07489e8bdac729d7938fb749d00bd56-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/ded3a4890c63d5bb329ef5475373cd5c-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/e836aa731da2c09d22c056cfa985ce31-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/f8506eaf6bcb6b47457c881d8a9ddb51-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' }
 ];
 
 // ===== SLIDESHOW FUNCTIONALITY =====
