@@ -55,7 +55,7 @@ const slideshowImages = [
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/e836aa731da2c09d22c056cfa985ce31-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/f8506eaf6bcb6b47457c881d8a9ddb51-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
 
-    // San Jose — Willow Creek Ct (March 2025)
+    // San Jose — Willow Creek Ct (March 2026)
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/0d1ed54a3feffaf58b7b84a17858b829-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/2e1f44760947475f56d816db0a40aacc-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/4d5eae3f4a2809f84ba37f589fad6635-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
