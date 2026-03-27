@@ -53,7 +53,21 @@ const slideshowImages = [
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/d07489e8bdac729d7938fb749d00bd56-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/ded3a4890c63d5bb329ef5475373cd5c-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/e836aa731da2c09d22c056cfa985ce31-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/f8506eaf6bcb6b47457c881d8a9ddb51-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' }
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/f8506eaf6bcb6b47457c881d8a9ddb51-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
+
+    // San Jose — Willow Creek Ct (March 2025)
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/0d1ed54a3feffaf58b7b84a17858b829-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/2e1f44760947475f56d816db0a40aacc-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/4d5eae3f4a2809f84ba37f589fad6635-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/4e6dec3c6bbf226a1bb784ccfa192b83-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/5a865f1af873ef88d41e9b4eecad33a2-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/20b86eacf1be3144c5ff512de14d7a7c-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/59c3b5f7cb241a2e6cb699ff757de24a-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/4124e11d0f3881c7beafdf12cba7ed05-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/bd51486953f1335b736352b11042fcff-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/d312f93d674a9f3a56e8c65fec9627ca-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/d631af6c9b4072627924683749fa95a7-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/e4cdfb1852e8cac46ab9ed1342641da6-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' }
 ];
 
 // ===== SLIDESHOW FUNCTIONALITY =====
