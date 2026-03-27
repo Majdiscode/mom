@@ -9,7 +9,6 @@ const slideshowImages = [
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/fc50688cdbc7746b474ea73c1da55f18.jpg?v=2', alt: 'Staged Home' },
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/146_425072528_02.jpg?v=2', alt: 'Beale Street Living' },
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/146_425072528_18.jpg?v=2', alt: 'Beale Street Interior' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/146_425072528_21.jpg?v=2', alt: 'Beale Street Room' },
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/6ee3938d9ae9641308cf3e16ae17b89f.jpg?v=2', alt: 'Staged Property' },
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/28d8c7c33f03c98f1e88209093d08d8d.jpg?v=2', alt: 'Staged Living Room' },
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/0bb6523a19d56626eb79e0cab004e52d-cc_ft_768.JPEG?v=2', alt: 'Staged Property' },
