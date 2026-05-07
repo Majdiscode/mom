@@ -66,7 +66,15 @@ const slideshowImages = [
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/bd51486953f1335b736352b11042fcff-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/d312f93d674a9f3a56e8c65fec9627ca-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
     { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/d631af6c9b4072627924683749fa95a7-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/e4cdfb1852e8cac46ab9ed1342641da6-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' }
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/e4cdfb1852e8cac46ab9ed1342641da6-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
+
+    // New Images
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/New%20Images/0d01e7577125347fdf3c4650fc90eb41-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'Staged bedroom' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/New%20Images/6ac7bbb0584d0d60a4e14b7812beffdc-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'Staged bedroom and bathroom' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/New%20Images/8e509a9f4d3d9797f8fcecdcc90165c8-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'Staged outdoor patio' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/New%20Images/a1682fbeadea27157d38bcd14403a210-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'Staged bedroom' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/New%20Images/d124aa49f044612d011fa4d029e44092-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'Staged entryway' },
+    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/New%20Images/e398b9bc2adfd6897451004fdd0f933b-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'Staged living room' }
 ];
 
 // ===== SLIDESHOW FUNCTIONALITY =====
