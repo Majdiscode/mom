@@ -4,137 +4,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shibli Homestaging Services</title>
-    <link rel="stylesheet" href="css/styles.css?v=2">
+    <meta name="description"
+        content="Shibli Homestaging Services creates warm, market-ready interiors for homes across the San Francisco Bay Area.">
+    <meta name="theme-color" content="#f4efe5">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Shibli Homestaging Services">
+    <meta property="og:description"
+        content="Thoughtful home staging that helps Bay Area properties feel memorable, inviting, and ready to sell.">
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/45e1cf379e5fb87d7bc2d20fc72f9b00-uncropped_scaled_within_1536_1152.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="/">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data: https://raw.githubusercontent.com; connect-src https://formspree.io; form-action https://formspree.io; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
+    <title>Bay Area Home Staging | Shibli Homestaging Services</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/styles.css?v=3">
 </head>
 
 <body>
-    <header>
-        <nav class="container">
-            <a href="#home" class="logo">Shibli Homestaging Services</a>
+    <a class="skip-link" href="#mainContent">Skip to content</a>
+
+    <header class="site-header">
+        <nav class="container navigation" aria-label="Primary navigation">
+            <a href="#home" class="brand" aria-label="Shibli Homestaging Services, home">
+                <span class="brand-name">Shibli</span>
+                <span class="brand-detail">Home Staging</span>
+            </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#portfolio">Work</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Transform Your Property Into a Dream Home</h1>
-                <p>Professional home staging services that help properties sell faster and for better prices. We create
-                    inviting spaces that buyers can envision as their future home.</p>
-                <a href="#portfolio" class="cta-button">Get Started</a>
+    <main id="mainContent">
+        <section id="home" class="hero" aria-labelledby="heroTitle">
+            <div class="container hero-layout">
+                <div class="hero-content">
+                    <p class="eyebrow">Bay Area home staging</p>
+                    <h1 id="heroTitle">Make the first impression feel like home.</h1>
+                    <p class="hero-copy">We shape calm, inviting interiors that help buyers connect with a property—and
+                        help every room show its full potential.</p>
+                    <div class="hero-actions">
+                        <a href="#portfolio" class="button button-primary">Explore our work</a>
+                        <a href="#contact" class="text-link">Book a consultation <span aria-hidden="true">→</span></a>
+                    </div>
+                </div>
+                <div class="hero-note" aria-label="Our approach">
+                    <span class="hero-note-number">01</span>
+                    <p>Thoughtful placement.<br>Warm restraint.<br>Market-ready rooms.</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <h2 class="section-title">Our Work</h2>
-            <div class="slideshow-wrapper">
-                <div class="slideshow" id="mainSlideshow">
-                    <!-- Counter -->
-                    <div class="slideshow-counter">
-                        <span id="currentSlide">1</span> / <span id="totalSlides">11</span>
+        <section id="portfolio" class="portfolio section" aria-labelledby="portfolioTitle">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Selected spaces</p>
+                    <h2 id="portfolioTitle">Designed to be remembered.</h2>
+                    <p>Recent staging work from homes and apartments throughout the Bay Area.</p>
+                </div>
+
+                <div class="slideshow-wrapper">
+                    <div class="slideshow" id="mainSlideshow" role="region" aria-roledescription="carousel"
+                        aria-label="Home staging portfolio" tabindex="0">
+                        <div class="slideshow-stage" id="slideshowStage">
+                            <img id="slideshowImage"
+                                src="https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/45e1cf379e5fb87d7bc2d20fc72f9b00-uncropped_scaled_within_1536_1152.webp?v=2"
+                                alt="Bright living room staged with neutral seating and warm wood accents"
+                                decoding="async" fetchpriority="high">
+                            <div class="image-error" id="imageError" hidden>
+                                <p>This portfolio image could not be loaded.</p>
+                                <button class="button button-secondary" id="retryImage" type="button">Try again</button>
+                            </div>
+
+                            <button class="slideshow-arrow prev" id="prevBtn" type="button"
+                                aria-label="Previous portfolio image">
+                                <span aria-hidden="true">←</span>
+                            </button>
+                            <button class="slideshow-arrow next" id="nextBtn" type="button"
+                                aria-label="Next portfolio image">
+                                <span aria-hidden="true">→</span>
+                            </button>
+
+                            <p class="slideshow-counter" aria-hidden="true">
+                                <span id="currentSlide">1</span>
+                                <span class="counter-rule"></span>
+                                <span id="totalSlides">48</span>
+                            </p>
+                        </div>
+
+                        <p class="sr-only" id="slideStatus" role="status" aria-live="polite" aria-atomic="true"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact section" aria-labelledby="contactTitle">
+            <div class="container">
+                <div class="section-heading contact-heading">
+                    <p class="eyebrow">Start a conversation</p>
+                    <h2 id="contactTitle">Let’s prepare your property for its next chapter.</h2>
+                </div>
+
+                <div class="contact-layout">
+                    <div class="contact-info">
+                        <p>Tell us a little about your property and timeline. We’ll follow up to discuss the space,
+                            staging needs, and next steps.</p>
+                        <address>
+                            <a href="mailto:shibli.homestaging@gmail.com">shibli.homestaging@gmail.com</a>
+                            <a href="tel:+14154811950">(415) 481-1950</a>
+                            <span>Burlingame, California</span>
+                            <span>Monday–Friday</span>
+                        </address>
                     </div>
 
-                    <!-- Navigation Arrows -->
-                    <button class="slideshow-arrow prev" id="prevBtn" aria-label="Previous Slide">‹</button>
-                    <button class="slideshow-arrow next" id="nextBtn" aria-label="Next Slide">›</button>
+                    <div class="contact-form">
+                        <form action="https://formspree.io/f/mpwlprla" method="POST" id="contactForm">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" name="name" autocomplete="name" minlength="2"
+                                        maxlength="100" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" autocomplete="email" maxlength="254"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone <span class="optional">(optional)</span></label>
+                                <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel"
+                                    maxlength="30">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">How can we help?</label>
+                                <textarea id="message" name="message" minlength="10" maxlength="2000" required></textarea>
+                            </div>
+                            <div class="form-trap" aria-hidden="true">
+                                <label for="companyWebsite">Leave this field empty</label>
+                                <input type="text" id="companyWebsite" name="_gotcha" tabindex="-1" autocomplete="off">
+                            </div>
+                            <input type="hidden" name="_subject"
+                                value="New Contact from Shibli Home Staging Website">
 
-                    <!-- Slides Container - Generated by JavaScript -->
-                    <div class="slideshow-container" id="slidesContainer"></div>
-
-                    <!-- Dot Indicators - Generated by JavaScript -->
-                    <div class="slideshow-dots" id="dotsContainer"></div>
-                </div>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="#contact" class="cta-button">Get a Free Consultation</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Ready to Transform Your Property?</h3>
-                    <p>Contact us today for a consultation and see how professional staging can make the difference in
-                        selling your home quickly and at the best price.</p>
-                    <ul class="contact-details">
-                        <li>
-                            <svg class="contact-icon" viewBox="0 0 24 24">
-                                <path
-                                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-                            </svg>
-                            shibli.homestaging@gmail.com
-                        </li>
-                        <li>
-                            <svg class="contact-icon" viewBox="0 0 24 24">
-                                <path
-                                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                            </svg>
-                            (415) 481-1950
-                        </li>
-                        <li>
-                            <svg class="contact-icon" viewBox="0 0 24 24">
-                                <path
-                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                            </svg>
-                            Burlingame, CA
-                        </li>
-                        <li>
-                            <svg class="contact-icon" viewBox="0 0 24 24">
-                                <path
-                                    d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" />
-                                <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
-                            </svg>
-                            M-F: Open
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="contact-form">
-                    <form action="https://formspree.io/f/mpwlprla" method="POST" id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-
-                        <!-- Hidden fields for better email organization -->
-                        <input type="hidden" name="_subject" value="New Contact from Shibli Home Staging Website">
-
-                        <button type="submit" class="submit-button">Send Message</button>
-                    </form>
+                            <button type="submit" class="button button-primary submit-button">
+                                <span class="button-label">Send message</span>
+                            </button>
+                            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Shibli Homestaging Services. All rights reserved.</p>
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p>Shibli Homestaging Services</p>
+            <p>&copy; <span id="currentYear">2026</span> · Burlingame, CA</p>
         </div>
     </footer>
 
-    <script src="js/script.js?v=10"></script>
+    <script src="js/slideshow-controller.js?v=1" defer></script>
+    <script src="js/contact-form.js?v=1" defer></script>
+    <script src="js/slideshow-data.js?v=1" defer></script>
+    <script src="js/script.js?v=11" defer></script>
 </body>
 
 </html>

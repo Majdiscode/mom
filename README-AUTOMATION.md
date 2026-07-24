@@ -1,300 +1,133 @@
-# Shibli Homestaging - Project Automation Tools
+# Portfolio automation
 
-This automation toolkit simplifies adding new projects to your portfolio website.
-
-## Key Features
-
-- **Natural Image Ordering**: Images are added in the same order they appear in your folder
-- **Automatic Grid Detection**: Script determines optimal grid size (4x2, 4x3, or 5x3) based on image count
-- **First Position Insertion**: New projects automatically become the first/newest project on the website
-- **Automatic Code Generation**: Generates all necessary code snippets for seamless integration
+The automation tools add a folder of images to the current on-demand slideshow.
+They update `js/slideshow-data.js`; they do not generate cards, grids, or modal
+markup.
 
 ## Prerequisites
 
-- Node.js installed on your computer
-- Images downloaded from Zillow into a folder
+- Node.js 22 or newer
+- Source images stored inside this repository
+- macOS `sips` or ImageMagick for conversion and resizing
 
-## Available Scripts
+## Recommended workflow
 
-### 1. `npm run convert-to-jpg` (Format Standardization - REQUIRED)
+### 1. Prepare a folder
 
-**Use this when:** You have images in various formats (webp, png, gif, etc.) and need to convert them all to JPG.
+Use clear, naturally sortable filenames:
 
-**What it does:**
-- Scans all images in folder
-- Converts ALL non-JPG formats to JPG
-- Deletes original files after successful conversion
-- Creates backup of originals in `_originals_backup` folder
-- Maintains image quality during conversion
+```text
+Oakland House/
+  01-living-room.jpg
+  02-dining-room.jpg
+  03-bedroom.jpg
+```
 
-**Usage:**
+Clear filenames produce better initial alt text. Review the generated alt text
+before publishing.
+
+### 2. Convert formats when needed
+
 ```bash
-npm run convert-to-jpg ./path/to/images
+npm run convert-to-jpg -- "./Oakland House"
 ```
 
-**Example:**
+This command converts supported non-JPEG formats and creates an
+`_originals_backup` directory. It changes image files, so inspect the folder
+afterward.
+
+### 3. Resize oversized images when needed
+
 ```bash
-npm run convert-to-jpg "./Oakland House"
-npm run convert-to-jpg "./SF Apt 3"
+npm run resize-images -- "./Oakland House"
 ```
 
-**Benefits:**
-- Consistent format across entire website (JPG only)
-- Simplifies image management
-- Better browser compatibility
-- Automatic cleanup of old formats
+Optional explicit dimensions:
 
-**Requirements:**
-- macOS: Uses built-in `sips` tool (no installation needed)
-- Other platforms: Requires ImageMagick (`brew install imagemagick`)
-
-**Supported input formats:** .webp, .png, .gif, .bmp, .tiff, .heic
-
----
-
-### 2. `npm run resize-images` (Image Standardization)
-
-**Use this when:** You want to standardize all image sizes before uploading to prevent UI issues.
-
-**What it does:**
-- Scans all images in folder
-- Finds smallest dimensions automatically
-- Resizes larger images to match (never upsizes)
-- Maintains aspect ratios and quality
-- Creates backup of originals in `_originals_backup` folder
-
-**Usage:**
 ```bash
-npm run resize-images ./path/to/images
+npm run resize-images -- "./Oakland House" 1536 1024
 ```
 
-Or specify custom target dimensions:
+The command never intentionally upscales images and creates a backup before
+resizing.
+
+### 4. Preview generated slideshow entries
+
 ```bash
-npm run resize-images ./path/to/images 1200 800
+npm run add-project -- "Oakland House" "./Oakland House"
 ```
 
-**Example:**
+Preview mode does not change website source. It prints the exact labeled block
+that automatic mode would insert.
+
+### 5. Update the slideshow data
+
 ```bash
-npm run resize-images "./Oakland House"
-npm run resize-images "./SF Apt 3" 1400 900
+npm run auto-update -- "Oakland House" "./Oakland House"
 ```
 
-**Benefits:**
-- Prevents lightbox arrows from jumping around
-- Consistent loading times
-- Smaller file sizes for faster uploads
-- Professional, uniform appearance
+Automatic mode:
 
-**Requirements:**
-- macOS: Uses built-in `sips` tool (no installation needed)
-- Other platforms: Requires ImageMagick (`brew install imagemagick`)
+- reads supported image files in natural filename order;
+- generates encoded GitHub raw URLs;
+- derives initial alt text from the project and filename;
+- inserts the project at the start of the managed data region;
+- rejects an existing project label;
+- writes a timestamped backup beside `js/slideshow-data.js`;
+- updates the data file atomically.
 
----
+### 6. Review and verify
 
-### 3. `npm run add-project` (Manual Mode)
+Open `js/slideshow-data.js` and make every alt description specific to what is
+visible in the photograph. Then run:
 
-**Use this when:** You want to see the generated code first before updating the website.
-
-**What it does:**
-- Scans your image folder
-- Generates code snippets
-- Displays the code in terminal
-- Saves code to a `.txt` file for reference
-
-**Usage:**
 ```bash
-npm run add-project "Project Name" ./path/to/images
+npm run build
+npm run test:coverage
+python3 -m http.server 8765
 ```
 
-**Example:**
-```bash
-npm run add-project "Brentwood House" ./Brentwood
-npm run add-project "SF Apartment 3" "./SF Apt 3"
-```
+At `http://localhost:8765/`, verify the first image, both arrow buttons,
+keyboard arrows, mobile swipe, wraparound from first to last, and the counter.
 
-**Output:**
-- Code snippet for `projectImages` object
-- HTML snippet for portfolio section
-- Saves everything to `project-name-code.txt`
+## Available commands
 
----
-
-### 4. `npm run auto-update` (Automatic Mode)
-
-**Use this when:** You want the script to automatically update `index.html` for you.
-
-**What it does:**
-- Scans your image folder
-- **Automatically updates** `index.html`
-- Adds project to `projectImages`
-- Adds portfolio card to HTML
-- Creates backup file (`index.html.backup`)
-
-**Usage:**
-```bash
-npm run auto-update "Project Name" ./path/to/images
-```
-
-**Example:**
-```bash
-npm run auto-update "Brentwood House" ./Brentwood
-npm run auto-update "SF Apartment 3" "./SF Apt 3"
-```
-
-**Safety:**
-- Creates `index.html.backup` before making changes
-- Won't overwrite if project already exists
-
----
-
-## Complete Workflow
-
-### Step 1: Download Images from Zillow
-Download all property images into a folder inside your project directory.
-
-**Example folder structure:**
-```
-Mom Website/
-  ├── Brentwood/
-  │   ├── living1.jpg
-  │   ├── bedroom1.jpg
-  │   └── kitchen1.jpg
-  ├── SF Apt 3/
-  │   ├── image1.jpg
-  │   └── image2.jpg
-  └── index.html
-```
-
-### Step 2: Convert Images to JPG (Required)
-```bash
-npm run convert-to-jpg "./Brentwood"
-```
-
-This converts all images to JPG format and deletes non-JPG originals. Creates backup of originals.
-
-### Step 3: Resize Images (Recommended)
-```bash
-npm run resize-images "./Brentwood"
-```
-
-This standardizes all image sizes to prevent lightbox arrow jumping. Creates backup of originals.
-
-### Step 4: Run the Automation Script
-
-**Option A: Manual (see code first)**
-```bash
-npm run add-project "Brentwood House" ./Brentwood
-```
-Then copy/paste the generated code into `index.html`.
-
-**Option B: Automatic (updates file for you)**
-```bash
-npm run auto-update "Brentwood House" ./Brentwood
-```
-Review the changes in `index.html`.
-
-### Step 5: Upload Images to GitHub
-```bash
-git add Brentwood/
-git commit -m "Add Brentwood House project images"
-git push
-```
-
-### Step 6: Commit Website Changes
-```bash
-git add index.html
-git commit -m "Add Brentwood House to portfolio"
-git push
-```
-
-### Step 7: Update cPanel
-Log into cPanel and pull the latest changes from GitHub.
-
----
-
-## How It Works
-
-### Image Ordering
-Images are processed in **natural alphabetical order** (the same order you see them in Finder/Explorer). Make sure to name/order your images appropriately before running the script.
-
-### Grid Detection
-The script automatically selects the best grid layout:
-- **1-8 images**: 4x2 grid (8 slots)
-- **9-12 images**: 4x3 grid (12 slots)
-- **13-15 images**: 5x3 grid (15 slots)
-
-### Project Positioning
-**New projects are always added as the FIRST project** on your website, making them appear at the top of your portfolio as the newest work.
-
-## Tips
-
-- **Use quotes** around project names with spaces: `"SF Apartment 3"`
-- **Supported image formats:** .jpg, .jpeg, .png, .webp, .gif
-- **Image naming**: Name images in the order you want them displayed (e.g., 01-living.jpg, 02-kitchen.jpg)
-- Script adds 5 empty slots for future images
-- First image in folder becomes the portfolio card thumbnail
+| Command | Purpose |
+| --- | --- |
+| `npm run add-project -- "Name" "./Folder"` | Preview a new slideshow block |
+| `npm run auto-update -- "Name" "./Folder"` | Insert a new slideshow block |
+| `npm run convert-to-jpg -- "./Folder"` | Convert supported formats to JPEG |
+| `npm run resize-images -- "./Folder"` | Normalize oversized dimensions |
+| `npm run audit-media` | Report exact duplicate tracked image contents |
+| `npm run build` | Run source checks and tests |
+| `npm run test:coverage` | Enforce the coverage threshold |
 
 ## Troubleshooting
 
-**"Folder not found" error:**
-- Check the path to your image folder
-- Use `./FolderName` for folders in current directory
-- Use quotes for paths with spaces
+**Image folder not found**
 
-**"No images found" error:**
-- Make sure your folder contains .jpg, .jpeg, .png, .webp, or .gif files
-- Check file extensions (must be lowercase or standard)
+Use a repository-relative path and quote paths containing spaces.
 
-**Project already exists:**
-- `auto-update` will warn you and skip updating
-- Manually remove the old project from `index.html` first
-- Or use `add-project` to generate new code and update manually
+**No supported images found**
 
----
+Supported additions are JPG, JPEG, PNG, WebP, and GIF files.
 
-## Need to Undo?
+**Project already exists**
 
-If `auto-update` makes a mistake, restore from backup:
-```bash
-cp index.html.backup index.html
-```
+Choose a distinct project label or deliberately edit the existing labeled block.
 
----
+**Insertion markers are missing**
 
-## Example: Complete Real Workflow
+Restore `AUTO-INSERT:START` and `AUTO-INSERT:END` in
+`js/slideshow-data.js`; do not insert into an arbitrary array.
 
-```bash
-# 1. Downloaded images to "Oakland House" folder
+**An image fails after deployment**
 
-# 2. Convert all images to JPG format (REQUIRED)
-npm run convert-to-jpg "./Oakland House"
+Confirm the exact path, capitalization, and extension exist on the GitHub
+`main` branch. GitHub paths are case-sensitive.
 
-# 3. Resize images for consistent sizing
-npm run resize-images "./Oakland House"
+## Media duplication
 
-# 4. Run automation
-npm run auto-update "Oakland House" "./Oakland House"
-
-# 5. Upload images to GitHub
-git add "Oakland House/"
-git commit -m "Add Oakland House project images"
-git push
-
-# 6. Commit website changes
-git add index.html
-git commit -m "Add Oakland House to portfolio"
-git push
-
-# 7. Update cPanel (via web interface)
-```
-
-Done! 🎉
-
----
-
-## Time Saved
-
-**Old workflow:** ~15-20 minutes per project
-**New workflow:** ~3-5 minutes per project (including conversion & resize)
-
-**Savings:** ~11-17 minutes per project! ⚡
+`npm run audit-media` reports byte-identical tracked images. It does not delete
+anything. A duplicate path may still be a published GitHub URL, so consolidate
+only after checking the live slideshow and any externally shared links.

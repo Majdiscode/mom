@@ -1,199 +1,188 @@
-// ===== SLIDESHOW IMAGES =====
-// Add or remove images here - everything else auto-updates
-const slideshowImages = [
+(function initializeSite() {
+    'use strict';
 
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/45e1cf379e5fb87d7bc2d20fc72f9b00-uncropped_scaled_within_1536_1152.webp?v=2', alt: 'Staged Design' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/e4cdfb1852e8cac46ab9ed1342641da6-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/May%2020%20Images/023451b4a5b5ed9f638f6cc5aeb04cb2-uncropped_scaled_within_1536_1152.jpg?v=1', alt: 'Staged interior' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/May%2020%20Images/1a3d4139f916b35965b5fd8a2c47758c-uncropped_scaled_within_1536_1152.jpg?v=1', alt: 'Staged interior' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/May%2020%20Images/1c8ea833aadf1720fefad2f512b0554a-uncropped_scaled_within_1536_1152.jpg?v=1', alt: 'Staged interior' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/May%2020%20Images/280870fdffc41714aafbd6a5931cd3c0-uncropped_scaled_within_1536_1152.jpg?v=1', alt: 'Staged interior' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/May%2020%20Images/739b8fdcf9d254e4774ef95c639f7d8d-uncropped_scaled_within_1536_1152.jpg?v=1', alt: 'Staged interior' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/May%2020%20Images/b18ed7ec42a75621d8fe51907d91348e-uncropped_scaled_within_1536_1152.jpg?v=1', alt: 'Staged interior' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/May%2020%20Images/c542fcaa480e4a5f7b127bc5c7a7d097-uncropped_scaled_within_1536_1152.jpg?v=1', alt: 'Staged interior' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/May%2020%20Images/d0712d223a667830d101bca186246547-uncropped_scaled_within_1536_1152.jpg?v=1', alt: 'Staged interior' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/May%2020%20Images/d33c68e66d0b2f03c362685701e20ec7-uncropped_scaled_within_1536_1152.jpg?v=1', alt: 'Staged interior' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/New%20Images/6ac7bbb0584d0d60a4e14b7812beffdc-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'Staged bedroom and bathroom' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/New%20Images/8e509a9f4d3d9797f8fcecdcc90165c8-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'Staged outdoor patio' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/New%20Images/a1682fbeadea27157d38bcd14403a210-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'Staged bedroom' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/New%20Images/d124aa49f044612d011fa4d029e44092-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'Staged entryway' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/New%20Images/e398b9bc2adfd6897451004fdd0f933b-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'Staged living room' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/60be9d00045b27b80060e5439c84a6ee.jpg?v=2', alt: 'Staged Interior' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/9621c92e5be17d2272eaaef9f5ff92b3.jpg?v=2', alt: 'Staged Bedroom' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/fc50688cdbc7746b474ea73c1da55f18.jpg?v=2', alt: 'Staged Home' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/146_425072528_02.jpg?v=2', alt: 'Beale Street Living' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/0bb6523a19d56626eb79e0cab004e52d-cc_ft_768.JPEG?v=2', alt: 'Staged Property' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/1519ac5a9a229985d9abe71ba80a8a22-cc_ft_1536.JPEG?v=2', alt: 'Staged Property' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/92002cb9725089c9187bfbf1cd9ffa80.JPEG?v=2', alt: 'Staged Property' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/DDining%231.JPEG?v=2', alt: 'Staged Property' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/DSC_1600.JPEG?v=2', alt: 'Staged Property' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/Dining%232.JPEG?v=2', alt: 'Staged Property' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/File_000(3).jpg?v=2', alt: 'Staged Property' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/File_000(4).jpg?v=2', alt: 'Staged Property' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/IMG_0186.jpeg?v=2', alt: 'Staged Property' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/IMG_0189.jpeg?v=2', alt: 'Staged Property' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/IMG_0217.jpeg?v=2', alt: 'Staged Property' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/IMG_0228.JPEG?v=2', alt: 'Staged Property' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/IMG_0255.JPEG?v=2', alt: 'Staged Property' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/c4400f978a30a7d247457f6e05cb002a.JPEG?v=2', alt: 'Staged Property' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/ca2620895459e0c9a3b3ba71ff295692.JPEG?v=2', alt: 'Staged Property' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/fc50688cdbc7746b474ea73c1da55f18-cc_ft_1536.JPEG?v=2', alt: 'Staged Property' },
+    const images = globalThis.SLIDESHOW_IMAGES;
+    const carouselApi = globalThis.SlideshowController;
+    const contactApi = globalThis.ContactForm;
 
-    // San Francisco Apartment
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/5a30fb4b7df07254e7d83289c434b716-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/971437bbaec69ecc4af1fe6c6944830c-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/979489aface36ae97ee31db8d809b64b-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/a5e22a2d56bedfc7d81acb6f89655a33-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/e836aa731da2c09d22c056cfa985ce31-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/San%20Francisco%20Apartment/f8506eaf6bcb6b47457c881d8a9ddb51-uncropped_scaled_within_1536_1152.webp', alt: 'SF Apartment Staged' },
+    function initializeSlideshow() {
+        const slideshow = document.getElementById('mainSlideshow');
+        const stage = document.getElementById('slideshowStage');
+        const image = document.getElementById('slideshowImage');
+        const imageError = document.getElementById('imageError');
+        const retryButton = document.getElementById('retryImage');
+        const previousButton = document.getElementById('prevBtn');
+        const nextButton = document.getElementById('nextBtn');
+        const currentSlide = document.getElementById('currentSlide');
+        const totalSlides = document.getElementById('totalSlides');
+        const status = document.getElementById('slideStatus');
 
-    // San Jose — Willow Creek Ct (March 2026)
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/0d1ed54a3feffaf58b7b84a17858b829-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/4d5eae3f4a2809f84ba37f589fad6635-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/5a865f1af873ef88d41e9b4eecad33a2-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/59c3b5f7cb241a2e6cb699ff757de24a-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/4124e11d0f3881c7beafdf12cba7ed05-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
-    { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/bd51486953f1335b736352b11042fcff-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose staged interior' },
-];
+        if (!slideshow || !stage || !image || !carouselApi || !Array.isArray(images)) {
+            return;
+        }
 
-// ===== SLIDESHOW FUNCTIONALITY =====
-(function () {
-    const slideshow = document.getElementById('mainSlideshow');
-    const slidesContainer = document.getElementById('slidesContainer');
-    const dotsContainer = document.getElementById('dotsContainer');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const currentSlideEl = document.getElementById('currentSlide');
-    const totalSlidesEl = document.getElementById('totalSlides');
+        let state = carouselApi.createCarouselState(images);
+        let touchStartX = 0;
 
-    let currentIndex = 0;
-    const totalSlides = slideshowImages.length;
+        function preloadNextImage() {
+            const nextIndex = carouselApi.wrapIndex(state.currentIndex + 1, state.total);
+            const preload = new Image();
+            preload.decoding = 'async';
+            preload.src = images[nextIndex].src;
+        }
 
-    // Generate slides and dots from array
-    function initSlideshow() {
-        // Clear existing content
-        slidesContainer.innerHTML = '';
-        dotsContainer.innerHTML = '';
+        function showImageError() {
+            stage.classList.remove('is-loading');
+            image.hidden = true;
+            imageError.hidden = false;
+        }
 
-        // Create slides
-        slideshowImages.forEach((image, index) => {
-            const slide = document.createElement('div');
-            slide.className = `slide${index === 0 ? ' active' : ''}`;
-            slide.dataset.index = index;
-            slide.innerHTML = `<img src="${image.src}" alt="${image.alt}">`;
-            slidesContainer.appendChild(slide);
+        function render({ announce = true, forceReload = false } = {}) {
+            const { currentImage, currentIndex, total } = state;
+            stage.classList.add('is-loading');
+            imageError.hidden = true;
+            image.hidden = false;
+            image.alt = currentImage.alt;
+            currentSlide.textContent = String(currentIndex + 1);
+            totalSlides.textContent = String(total);
+            status.textContent = announce
+                ? `Portfolio image ${currentIndex + 1} of ${total}: ${currentImage.alt}`
+                : '';
 
-            // Only create dots if we have a reasonable number of slides (e.g., <= 15)
-            // Otherwise, it gets too cluttered. The counter text is sufficient.
-            if (totalSlides <= 15) {
-                const dot = document.createElement('button');
-                dot.className = `slideshow-dot${index === 0 ? ' active' : ''}`;
-                dot.dataset.index = index;
-                dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-                dot.addEventListener('click', () => goToSlide(index));
-                dotsContainer.appendChild(dot);
+            image.onload = () => {
+                stage.classList.remove('is-loading');
+                preloadNextImage();
+            };
+            image.onerror = showImageError;
+
+            if (forceReload) {
+                const separator = currentImage.src.includes('?') ? '&' : '?';
+                image.src = `${currentImage.src}${separator}retry=${Date.now()}`;
+            } else if (image.src !== currentImage.src) {
+                image.src = currentImage.src;
+            } else if (image.complete && image.naturalWidth > 0) {
+                image.onload();
+            }
+        }
+
+        function move(direction) {
+            state = carouselApi.moveCarousel(state, images, direction);
+            render();
+        }
+
+        previousButton.addEventListener('click', () => move(-1));
+        nextButton.addEventListener('click', () => move(1));
+        retryButton.addEventListener('click', () => render({ forceReload: true }));
+
+        slideshow.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft') {
+                event.preventDefault();
+                move(-1);
+            } else if (event.key === 'ArrowRight') {
+                event.preventDefault();
+                move(1);
             }
         });
 
-        // Hide dots container visually if no dots are created to prevent empty padding
-        if (totalSlides > 15) {
-            dotsContainer.style.display = 'none';
-        }
+        stage.addEventListener('touchstart', (event) => {
+            touchStartX = event.changedTouches[0].screenX;
+        }, { passive: true });
 
-        // Update counter
-        totalSlidesEl.textContent = totalSlides;
+        stage.addEventListener('touchend', (event) => {
+            const distance = event.changedTouches[0].screenX - touchStartX;
+
+            if (Math.abs(distance) >= 50) {
+                move(distance > 0 ? -1 : 1);
+            }
+        }, { passive: true });
+
+        render({ announce: false });
     }
 
-    // Go to specific slide
-    function goToSlide(index) {
-        if (index < 0) index = totalSlides - 1;
-        if (index >= totalSlides) index = 0;
+    function initializeContactForm() {
+        const form = document.getElementById('contactForm');
+        const submitButton = form?.querySelector('.submit-button');
+        const buttonLabel = submitButton?.querySelector('.button-label');
+        const status = document.getElementById('formStatus');
 
-        // Update slides
-        document.querySelectorAll('.slide').forEach((slide, i) => {
-            slide.classList.toggle('active', i === index);
+        if (!form || !submitButton || !buttonLabel || !status || !contactApi || !globalThis.fetch) {
+            return;
+        }
+
+        form.addEventListener('input', (event) => {
+            if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) {
+                event.target.setCustomValidity('');
+            }
         });
 
-        // Update dots
-        document.querySelectorAll('.slideshow-dot').forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-        });
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
 
-        currentSlideEl.textContent = index + 1;
-        currentIndex = index;
+            if (!form.checkValidity() || submitButton.disabled) {
+                form.reportValidity();
+                return;
+            }
+
+            const formData = new FormData(form);
+            const validationErrors = contactApi.validateContactFields(
+                Object.fromEntries(formData.entries())
+            );
+
+            for (const field of ['name', 'email', 'phone', 'message']) {
+                form.elements[field].setCustomValidity(validationErrors[field] || '');
+            }
+
+            if (Object.keys(validationErrors).length > 0) {
+                status.className = 'form-status is-error';
+                status.textContent = 'Please review the highlighted field and try again.';
+                form.reportValidity();
+                return;
+            }
+
+            submitButton.disabled = true;
+            form.setAttribute('aria-busy', 'true');
+            buttonLabel.textContent = 'Sending…';
+            status.className = 'form-status';
+            status.textContent = 'Sending your message…';
+
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 15000);
+            const fetchWithTimeout = (url, options) => fetch(url, {
+                ...options,
+                signal: controller.signal
+            });
+            const result = await contactApi.sendContact({
+                endpoint: form.action,
+                formData,
+                fetchImpl: fetchWithTimeout
+            });
+
+            clearTimeout(timeout);
+            submitButton.disabled = false;
+            form.removeAttribute('aria-busy');
+            buttonLabel.textContent = 'Send message';
+
+            if (result.ok) {
+                form.reset();
+                status.className = 'form-status is-success';
+                status.textContent = 'Thank you. Your message has been sent, and we’ll be in touch soon.';
+                return;
+            }
+
+            status.className = 'form-status is-error';
+            status.textContent = result.message;
+        });
     }
 
-    function nextSlide() { goToSlide(currentIndex + 1); }
-    function prevSlide() { goToSlide(currentIndex - 1); }
+    function initializeFooterYear() {
+        const year = document.getElementById('currentYear');
 
-    // Event listeners
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
-
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        const rect = slideshow.getBoundingClientRect();
-        const isInView = rect.top < window.innerHeight && rect.bottom > 0;
-
-        if (isInView) {
-            if (e.key === 'ArrowRight') { e.preventDefault(); nextSlide(); }
-            else if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+        if (year) {
+            year.textContent = String(new Date().getFullYear());
         }
-    });
+    }
 
-    // Touch/Swipe support
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    slidesContainer.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    slidesContainer.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        const swipeDistance = touchEndX - touchStartX;
-        if (Math.abs(swipeDistance) > 50) {
-            swipeDistance > 0 ? prevSlide() : nextSlide();
-        }
-    }, { passive: true });
-
-    // Initialize
-    initSlideshow();
-})();
-
-// ===== CONTACT FORM =====
-document.getElementById('contactForm').addEventListener('submit', function (e) {
-    const btn = document.querySelector('.submit-button');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    btn.style.opacity = '0.7';
-
-    setTimeout(() => {
-        btn.textContent = 'Send Message';
-        btn.disabled = false;
-        btn.style.opacity = '1';
-    }, 3000);
-});
-
-// ===== SMOOTH SCROLLING =====
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    });
-});
-
-// ===== SCROLL ANIMATIONS =====
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-        }
-    });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-const slideshowWrapper = document.querySelector('.slideshow-wrapper');
-if (slideshowWrapper) observer.observe(slideshowWrapper);
+    initializeSlideshow();
+    initializeContactForm();
+    initializeFooterYear();
+}());

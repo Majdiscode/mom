@@ -17,3 +17,15 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+*.backup
+*.backup-*
+*-code.txt
+
+# Generated image backups and audits
+**/_originals_backup/
+Unique_Images/
+
+# Downloaded real-estate listing captures
+*_files/
+*Zillow.html
+*Redfin.html

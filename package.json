@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Automation tools for Shibli Homestaging Services website",
   "scripts": {
+    "test": "node --test",
+    "test:coverage": "node --test --experimental-test-coverage --test-coverage-include=js/slideshow-controller.js --test-coverage-include=js/contact-form.js --test-coverage-include=scripts/project-tools.js --test-coverage-lines=80 --test-coverage-functions=80 --test-coverage-branches=80",
+    "lint": "node scripts/check-project.js",
+    "build": "npm run lint && npm test",
+    "audit-media": "node scripts/audit-media.js",
     "convert-to-jpg": "node scripts/convert-to-jpg.js",
     "add-project": "node scripts/add-project.js",
     "auto-update": "node scripts/auto-update.js",
