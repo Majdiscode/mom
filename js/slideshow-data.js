@@ -61,6 +61,9 @@
         { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/59c3b5f7cb241a2e6cb699ff757de24a-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose home staged to emphasize open sightlines' },
         { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/4124e11d0f3881c7beafdf12cba7ed05-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'San Jose interior staged with natural textures' },
         { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/bd51486953f1335b736352b11042fcff-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'Completed Willow Creek Court home staging' },
+        // PROJECT: Milpitas Palmer Street
+        { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/milpitas-dining-room.webp?v=1', alt: 'Milpitas dining room staged with a modern table and garden views' },
+        { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/milpitas-bedroom.webp?v=1', alt: 'Milpitas bedroom staged with a desk and warm natural textures' },
         // AUTO-INSERT:END
     ]);
 }));
