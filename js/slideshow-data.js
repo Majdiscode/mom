@@ -63,6 +63,8 @@
         { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/bd51486953f1335b736352b11042fcff-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'Completed Willow Creek Court home staging' },
         // PROJECT: Milpitas Palmer Street
         { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/milpitas-dining-room.webp?v=1', alt: 'Milpitas dining room staged with a modern table and garden views' },
+        { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/milpitas-covered-patio.webp?v=1', alt: 'Milpitas covered patio staged with dining furniture and garden views' },
+        { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/milpitas-garden-seating.webp?v=1', alt: 'Milpitas garden patio staged with comfortable outdoor seating' },
         // AUTO-INSERT:END
     ]);
 }));
