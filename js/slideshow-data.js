@@ -24,7 +24,7 @@
         { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/May%2020%20Images/d33c68e66d0b2f03c362685701e20ec7-uncropped_scaled_within_1536_1152.jpg?v=1', alt: 'Finished staging composition with refined neutral furniture' },
         { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/New%20Images/6ac7bbb0584d0d60a4e14b7812beffdc-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'Bedroom and bathroom staged with crisp white linens' },
         { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/New%20Images/8e509a9f4d3d9797f8fcecdcc90165c8-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'Outdoor patio staged as an inviting entertaining space' },
-        { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/New%20Images/a1682fbeadea27157d38bcd14403a210-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'Bedroom staged with soft bedding and natural accents' },
+        { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/milpitas-bedroom.webp?v=1', alt: 'Milpitas bedroom staged with a desk and warm natural textures' },
         { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/New%20Images/d124aa49f044612d011fa4d029e44092-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'Entryway staged to create a polished arrival' },
         { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/New%20Images/e398b9bc2adfd6897451004fdd0f933b-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'Living room staged with neutral seating and organic textures' },
         { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/60be9d00045b27b80060e5439c84a6ee.jpg?v=2', alt: 'Bright staged interior with a comfortable seating arrangement' },
@@ -63,7 +63,6 @@
         { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/March%2027/bd51486953f1335b736352b11042fcff-uncropped_scaled_within_1536_1152.webp?v=1', alt: 'Completed Willow Creek Court home staging' },
         // PROJECT: Milpitas Palmer Street
         { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/milpitas-dining-room.webp?v=1', alt: 'Milpitas dining room staged with a modern table and garden views' },
-        { src: 'https://raw.githubusercontent.com/Majdiscode/mom/main/Final%20Images/milpitas-bedroom.webp?v=1', alt: 'Milpitas bedroom staged with a desk and warm natural textures' },
         // AUTO-INSERT:END
     ]);
 }));
